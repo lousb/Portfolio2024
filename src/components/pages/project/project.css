@@ -1,0 +1,197 @@
+.project-details{
+    width: calc(100svw - (2.7svw * 2));
+    padding-inline: 2.7svw;
+    background-color: white;
+    border-radius: 0px 0px 20px 20px;
+    transform-origin: bottom center;
+}
+.project-container{
+    margin-bottom: calc(2.7svw * 3);
+}
+.project-details h1{
+    margin:0;
+}
+.project-details img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+.large-image-section{
+    aspect-ratio: 16/9;
+    width: calc(100svw - (2.7svw * 2));
+
+    overflow: hidden;
+    padding-bottom: 2.7svw;
+    opacity: 0;
+transform: translateY(10px) scale(0.95);
+transform-origin: bottom center;
+}
+.dual-image-section{
+    width: calc(100svw - (2.7svw * 2));
+
+    overflow: hidden;
+    padding-bottom: 2.7svw;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0;
+    transform: translateY(10px) scale(0.99);
+    transform-origin: bottom center;
+}
+.dual-image-section img, .project-details video{
+    width: calc(50svw - (2.7svw*1.5));
+    height: calc(50svw - 4.05svw);
+    border-radius: 5px;
+    background-color: black;
+}
+.dual-image-section img#contain{
+    object-fit: contain;
+}
+.website-link{
+    position: relative;
+    font-weight: 500;
+    font-size: 2em;
+    cursor: pointer;
+    padding-right: 1.1em;
+    color: var(--primary-color);
+}
+
+.dual-desc-section{
+    width: calc(100svw - (2.7svw * 2));
+    overflow: hidden;
+    padding-bottom: 2.7svw;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0;
+transform: translateY(10px) scale(0.99);
+transform-origin: bottom center;
+}
+.dual-desc-section > div{
+    width: calc(50% - (2.7svw/2));
+    margin-block: 2.7svw;
+}
+.dual-desc-section > div p{
+   font-weight: 500;
+   font-size: 2em;
+   color: var(--primary-color);
+   margin: 0;
+ 
+}
+.project-less-details{
+    padding-block: 2.7svw;
+}
+.project-less-details p{
+    font-weight: 500;
+    font-size: 2em;
+    color: var(--primary-color);
+    margin: 0;
+}
+.project-less-details h1{
+font-size: 9vw;
+letter-spacing: -0.5vw;
+    color: var(--primary-color);
+}
+body:has(.project-details) .header-menu-toggler{
+
+    transform: scale(0.8) !important;
+    width: 211px !important;
+}
+body:has(.project-details){
+    background-color: var(--background-color);
+}
+body:has(.project-details) .header-page-id > .project-home{
+    transform:translateY(-100%);
+}
+body:has(.project-details) .header-page-id > p{
+    transition: 0s all !important;
+    transform: translateY(1em) !important;
+}
+.dual-less-section{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2.7svw;
+}
+.announcement{
+    font-weight: 500;
+    font-size: 2em;
+    color: #0F4BBE !important;
+}
+.tech-used{
+    opacity: 0.7;
+}
+.dual-less-section > div{
+    width: 49%;
+    margin:0;
+  
+}
+div:has(>.tech-used){
+    padding-bottom: 2.7svw !important;
+}
+.tech-used{
+    margin:0 !important;
+    font-weight: 500;
+    font-size: 1.2em;
+    color: var(--primary-color);
+    margin: 0;
+}
+.project-less-details .title{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    transform: translateY(-2.7vh);
+    z-index: 10;
+    line-height: 9vw;
+}
+.title-wrap{
+    height: 9vw;
+    padding-bottom:2.7svw;
+}
+.rendered-section-wrap{
+    opacity: 0;
+}
+.project-details-amp .title{
+    font-size: 8.44vw;
+    line-height: 8.44vw;
+}
+.youtube-video-section iframe{
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: 100%;
+    border-radius: 10px;
+}
+@media only screen and (max-width:800px){
+    .project-details{
+        width: 90svw !important;
+        padding-inline: 5svw;
+    }
+    .dual-less-section, .dual-desc-section{
+        flex-direction: column;
+        gap: 1em;
+        padding-bottom: 1em;
+    }
+    .project-less-details h1 {
+    font-size: 8.6vw;
+    }
+    .dual-desc-section{
+        margin-block: 2em;
+    }
+    .dual-desc-section > div{
+        width: 90svw;
+        
+    }
+    .large-image-section{
+        width: 90svw;
+    }
+    .dual-image-section{
+        flex-direction: column;
+        gap: 2.7svw;
+    }
+    .dual-image-section img, .project-details video {
+        width: 90svw;
+        height: 90svw;
+    }
+    
+    .dual-less-section>div{
+        width: 100%;
+    }
+}
