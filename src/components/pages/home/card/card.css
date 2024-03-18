@@ -356,6 +356,10 @@
   
 }
 
+.grid-box-desc .text-reveal-element{
+  display: flex;
+  align-items: end;
+}
 
 
 
@@ -367,15 +371,17 @@
       transform: none !important;
 
     }
-    
-
+  
+    .angry-grid{
+      min-height: 150vh !important;
+    }
     .card-0 .angry-grid {
    display: grid; 
 
    grid-template-rows: 1fr 1fr 1fr 1fr;
    grid-template-columns: 1fr 1fr;
    gap: 1.4svw;
-   height: 200% !important;
+  
 
 }
 
@@ -551,7 +557,7 @@
 
   .grid-box-desc:has(.box-2) {
     flex-direction: column;
-    gap: 3svw;
+    gap: 5em;
   }
   .grid-box-desc:has(.box-2) > div {
     width: 100%;
@@ -559,16 +565,25 @@
   .card-0 .item-4 .grid-box-desc{
     display: flex;
     justify-content: space-between;
+    align-items: end;
+    position: absolute;
+    bottom:4svw;
   }
   .card-0 .item-4 .grid-box-desc > div{
-    width: 45%;
+    width: 48%;
+  }
+  .grid-box-desc:has(.card-specific-item.define){
+    width: calc(100% - 10svw);
   }
   .card-specific-item.define {
     width: 45%;
     height: auto !important;
     object-fit: contain;
-    object-position: center center;
+    object-position: right bottom;
     margin-top:0;
+    transform: scale(0.8);
+    transform-origin: bottom;
+    
   }
   .grid-box-desc{
     transform: translateY(-5px);

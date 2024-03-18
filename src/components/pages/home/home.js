@@ -809,7 +809,7 @@ const handleTileClick = (index, project) => {
                   <div className='short-desc-links-wrap'> 
                    <div className="short-desc-links" onClick={() => handleReadMoreClick(index, project)}><p className="link-read-more">Read More -></p>
                       <DelayLink  delay={1700} className="link-view-more" to={`/${project.title.toLowerCase().replace(/\s/g, '-')}`}>
-                        View More ->
+                        Case Study ->
                       </DelayLink>
                     </div>
                   </div>

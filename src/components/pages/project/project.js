@@ -190,8 +190,8 @@ useEffect(() => {
       <div id={`section-${index}`} className="dual-image-section">
         {isVideo1 ? (
           <video autoPlay loop muted playsInline>
-            <source src={sectionData.image1.imageUrl} type="video/mp4" />
-            Your browser does not support the video tag.
+            <source src={sectionData.image1.imageUrl} type="video/webm" />
+            <source src={sectionData.image1.imageUrl.replace(".webm", ".mp4")} type="video/mp4" />
           </video>
         ) : (
           <img src={sectionData.image1.imageUrl} alt={sectionData.image1.imageName} iid={sectionData.image1.id ? sectionData.image1.id : null}/>
@@ -199,8 +199,8 @@ useEffect(() => {
 
         {isVideo2 ? (
           <video autoPlay loop muted playsInline>
-            <source src={sectionData.image2.imageUrl} type="video/mp4" />
-            Your browser does not support the video tag.
+            <source src={sectionData.image2.imageUrl} type="video/webm" />
+            <source src={sectionData.image2.imageUrl.replace(".webm", ".mp4")} type="video/mp4" />
           </video>
         ) : (
           <img src={sectionData.image2.imageUrl} alt={sectionData.image2.imageName} id={sectionData.image2.id ? sectionData.image2.id : null}/>

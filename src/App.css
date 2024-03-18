@@ -1,8 +1,14 @@
+
+html{
+
+
+}
 body{
     margin:0;
 
     max-width: 100vw;
     overflow-x: hidden;
+
 }
 .App {
  
@@ -10,12 +16,13 @@ body{
     
     overflow-x: hidden;
     overflow-y: scroll;
+    position: relative;
   
   
   }
 
   section{
-    
+    overflow-x: hidden;
     width:94.6svw;
     padding-inline: 2.7svw;
     height: 100vh;

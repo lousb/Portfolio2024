@@ -132,7 +132,7 @@ const projectsData = [
    "title": "MAX DONA",
    "announcement":"(In Development)",
    "description": {
-     "short": "Web Development / Design",
+     "short": "Web Dev & Design",
      "longCol1": "Max Dona, a web based cinematography portfolio. Accompanied by interaction, beautiful visuals & a custom Content Management System.",
      "longCol2": "The goal driving Max's website: Create the best website I can. Through hours invested, design's tested & care for every step of the process."
    },

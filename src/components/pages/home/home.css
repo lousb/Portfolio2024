@@ -863,12 +863,20 @@ body:has(.portfolio-page-container) .project-home{
     }
 }
 @media only screen and (max-width:800px){
-
+    .box-index{
+        top:4svw;
+        right: 4svw !important;
+    }
+    
     .grid-box{
         padding: 4svw !important;
+
     }
     .angry-grid .grid-box-desc {
-        font-size: 1.1em !important;
+        font-size: 0.9em !important;
+    }
+    .grid-box-title{
+        font-size: 2em !important;
     }
     .project-tile-3 .project-title {
         font-size: 7.72vw;
@@ -896,13 +904,14 @@ body:has(.portfolio-page-container) .project-home{
         margin-inline:0 !important;
         width:90svw !important;
         padding-inline: 5svw;
-        padding-bottom: 160vh !important;
+        height: fit-content !important;
+        padding-bottom: 10vh !important;
     }
     .cards-wrap{
         padding-top:0 !important;
     }
     .card-title-wrap{
-        margin-block: 20vh !important;
+        margin-block: 15vh !important;
     }
     .card-2{
         margin-bottom: 3svw !important;
@@ -991,11 +1000,15 @@ body:has(.portfolio-page-container) .project-home{
     .floating-heads-element{
         display: none;
     } 
+    .short-desc-overview{
+        width: 80% !important;
+    }
     .threejs-wrap:has(.louis-canvas){
-        margin-top:-10vh;
+        margin-top:40vh;
         width: 400%;
         max-height: 200vh;
         left: 18%;
+        top:0;
         max-width: calc(850px*4);
     }
     section{
@@ -1025,7 +1038,7 @@ body:has(.portfolio-page-container) .project-home{
         flex-direction: column;
     }
     .footer-links{
-        margin-top: 2.7svw;
+        margin-top: 10vh;
         width: max-content;
     }
     .acknowledgement-p{
@@ -1035,6 +1048,39 @@ body:has(.portfolio-page-container) .project-home{
         margin-top:2.7svw;
         font-size: 14vw;
     }
+    .project-desc-wrap *{
+        font-size: 1.1em ;
+        line-height: 1em;
+    }
+    .short-desc-links a{
+        top:0;
+    }
+    .short-desc-links p {
+        transform: translateY(-1em);
+    }
+    .project-tile{
+        padding-block: 2em;
+    }
+    .project-line-bottom{
+        display: none;
+    }
+    .project-title{
+        text-align: center;
+    }
+    .link-view-more{
+        width: 100% !important;
+        text-align: center;
+    }
+    .text-reveal-container{
+        clip-path: polygon(0px 0px, 100% 0%, 100% 100%, 0px 100%) !important;
+        transform: none !important;
+    }
+    .page-five{
+        z-index: 9999;
+    }
+    .header-toggled .header-menu-toggler{
+        min-width: 100%;
+    }
 }
 @media only screen and (max-width:550px){
     .main-page-buttons-wrap{
@@ -1042,15 +1088,20 @@ body:has(.portfolio-page-container) .project-home{
         gap: 1em;
         margin-bottom:2.7svw;
     }
+   
     .main-page-buttons-wrap a{
         width: max-content;
 
     }
     .threejs-wrap:has(.louis-canvas){
-        margin-top:-18vh;
+        margin-top:30vh;
     
     }
     .floating-heads-element{
         display: none;
     }
+    body .card .angry-grid{
+        min-height: 140vh !important;
+    }
+
 }
