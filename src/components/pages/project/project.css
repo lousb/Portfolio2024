@@ -160,6 +160,13 @@ div:has(>.tech-used){
     border-radius: 10px;
 }
 @media only screen and (max-width:800px){
+    .project-less-details > .text-reveal-container{
+        margin-bottom: 5svw;
+    }
+    .title-wrap .title{
+        transform: none !important;
+        height: auto !important;
+    }
     .project-details{
         width: 90svw !important;
         padding-inline: 5svw;

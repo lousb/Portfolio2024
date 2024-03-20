@@ -831,7 +831,9 @@ body:has(.portfolio-page-container) .project-home{
 .project-tile-3 .project-title{
     font-size: 4.52vw;
 }
-
+.short-desc-links{
+    padding-right: 20px;
+}
 @media screen and (max-width: 1350px) {
     .page-two{
         display:flex;
