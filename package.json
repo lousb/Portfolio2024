@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://lousb.github.io/Portfolio2024",
+  "homepage": "https://louis.wyeeeth.com",
   "dependencies": {
     "@react-three/drei": "^9.93.0",
     "@studio-freight/lenis": "^1.0.33",
