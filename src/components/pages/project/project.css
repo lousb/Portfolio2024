@@ -22,7 +22,7 @@
     width: calc(100svw - (2.7svw * 2));
 
     overflow: hidden;
-    padding-bottom: 2.7svw;
+    margin-bottom: 2.7svw;
     opacity: 0;
 transform: translateY(10px) scale(0.95);
 transform-origin: bottom center;
@@ -94,7 +94,7 @@ letter-spacing: -0.5vw;
 body:has(.project-details) .header-menu-toggler{
 
     transform: scale(0.8) !important;
-    width: 211px !important;
+    min-width: 211px !important;
 }
 body:has(.project-details){
     background-color: var(--background-color);
@@ -160,6 +160,9 @@ div:has(>.tech-used){
     border-radius: 10px;
 }
 @media only screen and (max-width:800px){
+    .website-link{
+        margin-bottom: 5svw;
+    }
     .project-less-details > .text-reveal-container{
         margin-bottom: 5svw;
     }

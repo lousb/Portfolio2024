@@ -985,11 +985,22 @@ gsap.to(".project-canvas>div",{
 
 const scrollToAboutSection = () => {
   const aboutSectionHeight = document.querySelector('.page-two').clientHeight;
-  console.log(document.querySelector('.page-two').clientHeight)
-  window.scrollTo({
-    top: aboutSectionHeight,
-    behavior: 'smooth'
-  });
+  const windowHeight = window.innerHeight;
+ 
+  if(aboutSectionHeight <= windowHeight){
+    window.scrollTo({
+      top: aboutSectionHeight,
+      behavior: 'smooth'
+    });
+  }else{
+    window.scrollTo({
+      top: windowHeight,
+      behavior: 'smooth'
+    });
+  }
+
+
+ 
 };
 
 export default Home;

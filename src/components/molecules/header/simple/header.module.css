@@ -23,7 +23,7 @@ header > div{
     height: 120px;
     width:94.6svw;
     margin:auto;
-    margin-inline: 2.7svw;
+    margin-inline: 2.7 !important;
     margin-bottom:2.7svw;
     display: flex;
     justify-content: right;
@@ -220,7 +220,7 @@ header > div{
 @media only screen and (max-width:800px){
     .header-inner-content{
         width: 90svw;
-        margin-inline: 5svw;
+        margin-inline: 5svw !important;
         margin-bottom:5svw;
         position: fixed !important;
     }
@@ -228,7 +228,7 @@ header > div{
         max-width: 82px !important;
 
     }
-    
+
 }
 
 
