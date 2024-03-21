@@ -474,13 +474,13 @@ function Introduction(){
               <div className="main-page-intro">
                 <Reveal elementClass={'main-page-p'} element={'p'} textContent={'Distinguishing & Developing within the intersection of Design & Digital through the display of information. '}/>
                 <div className="main-page-buttons-wrap">
-                <SmoothScrollLink to="about" spy={true} smooth={true} offset={-20} duration={1000} delay={10} easing="cubic-bezier(0.76, 0, 0.24, 1)">
-                    <a className="main-page-button-primary">
+                <a  onClick={() =>scrollToAboutSection()}>
+                    <a className="main-page-button-primary" >
                       <Reveal textContent={"Read More"} element={'span'}/>
                     </a>
-                  </SmoothScrollLink>
+                  </a>
      
-                  <SmoothScrollLink to="contact" spy={true} smooth={true} offset={-20} duration={2000} delay={10} easing="cubic-bezier(0.76, 0, 0.24, 1)">
+                  <SmoothScrollLink to="contact"  smooth={true} offset={-20} duration={2000} delay={10} easing="cubic-bezier(0.76, 0, 0.24, 1)">
                     <a className="main-page-button-secondary hoverable">
                       <Reveal textContent={"Let's Work"} element={'span'}/>
                      
@@ -564,7 +564,7 @@ function About({windowWidth}){
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             gsap.to('.header-page-id > p', {
- 
+              opacity:1,
               y: '0.1em',
               duration: 1,
               ease: "power2.out",
@@ -579,11 +579,11 @@ function About({windowWidth}){
   observer.observe(sectionRef.current);
 
   return () => observer.disconnect();
-  });
+  }, [sectionRef]);
 
   
   return(
-    <section className="page-two page" ref={sectionRef} id="about">
+    <section className="page-two page" ref={sectionRef} >
     <p className="main-page-p">
         Louis Wyeth. I'm a designer who crafts intuitive, end-to-end products, focusing on scalable systems and user-friendly interfaces to empower interaction. I thrive in collaborative settings, using a precise process to develop modern ways to engage with media and culture.
     </p>
@@ -633,7 +633,7 @@ useLayoutEffect(() => {
  gsap.to(".threejs-background",{
    height: "100%",
    scrollTrigger: {
-     start: `-${window.innerHeight *0.6}  top`,
+     start: `-${window.innerHeight *0.4}  top`,
      end: () => `+=${window.innerHeight * 0.5}`,
      scrub: true,
      id: "scrub",
@@ -647,7 +647,7 @@ useLayoutEffect(() => {
    scale:1,
    scrollTrigger: {
      start: `-${window.innerHeight *0.6}  top`,
-     end: () => `+=${window.innerHeight * 0.5}`,
+     end: () => `+=${window.innerHeight * 0.7}`,
      scrub: true,
      id: "scrub",
      trigger:  sectionRef.current,
@@ -885,7 +885,7 @@ return () => {
 gsap.to(".project-canvas>div",{
   y:'-100vh',
   scrollTrigger: {
-    start: `-${window.innerHeight * 0.8} top`,
+    start: `-${window.innerHeight * 0.6} top`,
     end: () => `+=400`,
     scrub: true,
     id: "scrub",
@@ -919,6 +919,17 @@ gsap.to(".project-canvas>div",{
   gsap.to(".cards-wrap .angry-grid",{
 
     marginTop:`-${window.innerHeight}`,
+    scrollTrigger: {
+      start: `bottom bottom`,
+      end:()=>`+=${window.innerHeight}`,
+      scrub: true,
+      id: "scrub",
+      trigger:  sectionRef.current,
+    },
+  });
+  gsap.to("header",{
+
+    marginTop:`-${window.innerHeight*0.3 + 82}`,
     scrollTrigger: {
       start: `bottom bottom`,
       end:()=>`+=${window.innerHeight}`,
@@ -972,6 +983,13 @@ gsap.to(".project-canvas>div",{
     )
 }
 
-
+const scrollToAboutSection = () => {
+  const aboutSectionHeight = document.querySelector('.page-two').clientHeight;
+  console.log(document.querySelector('.page-two').clientHeight)
+  window.scrollTo({
+    top: aboutSectionHeight,
+    behavior: 'smooth'
+  });
+};
 
 export default Home;

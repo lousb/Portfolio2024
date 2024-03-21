@@ -117,3 +117,6 @@ body:has(a:hover) circle, body:has(.hoverable:not(.active):hover) circle{
 .cursor__ball{
 
 }
+.mousedown .cursor__ball circle, .mousedown .cursor circle{
+  scale: 10;
+}

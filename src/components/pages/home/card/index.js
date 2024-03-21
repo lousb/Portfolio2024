@@ -93,7 +93,7 @@ gsap.fromTo(cardRef.current.querySelector('.card-specific-item.define'), {
     handleMobileViewAnimation();
   } else {
      handleDesktopViewAnimation();
-     console.log(`windowwidth ${windowWidth}`)
+
    }
 
 

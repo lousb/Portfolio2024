@@ -1,12 +1,14 @@
 .minimal-header{
     position: absolute;
-    bottom:0;
+    top:0;
+    height: 100vh;
     left: 0;
     z-index: 9999;
     min-width: 100%;
     pointer-events: none;
 
 }
+
 .header-page-id p{
     opacity: 0;
 }
@@ -27,7 +29,7 @@ header > div{
     justify-content: right;
     align-items: end;
 
-   
+    position: absolute;
     bottom:0;
     left: 0;
 
@@ -156,6 +158,10 @@ header > div{
     transform-origin: bottom right;
     min-width: 0;
     transition: 700ms cubic-bezier(0.76, 0, 0.24, 1) all, max-width 150ms ease ;
+    box-shadow: rgba(10, 10, 122, 0.057) 0px 7px 29px 0px;
+}
+.header-toggled .header-menu-toggler{
+    min-width: calc(82px * 4);
 }
 .header-toggled .header-menu-toggler{
     width: 328px !important;
@@ -218,6 +224,11 @@ header > div{
         margin-bottom:5svw;
         position: fixed !important;
     }
+    .header-menu-toggler{
+        max-width: 82px !important;
+
+    }
+    
 }
 
 

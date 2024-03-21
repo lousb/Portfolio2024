@@ -1,5 +1,5 @@
 // App.js
-import React from "react";
+import React, { useState, useEffect } from "react";
 import './App.css';
 
 //components
@@ -15,19 +15,37 @@ import MouseCursor from "./utils/mouseCursor";
 
 function App() {
   const isScrolled = useScroll();
-  
- 
+  const [mouseDown, setMouseDown] = useState(false);
+
+  useEffect(() => {
+    const handleMouseDown = (event) => {
+      // Check if the mouse down event target is not a link
+      if (!event.target.closest('a')) {
+        setMouseDown(true);
+      }
+    };
+
+    const handleMouseUp = () => {
+      setMouseDown(false);
+    };
+
+    document.addEventListener('mousedown', handleMouseDown);
+    document.addEventListener('mouseup', handleMouseUp);
+
+    return () => {
+      document.removeEventListener('mousedown', handleMouseDown);
+      document.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, []);
 
   return (
-
-      <div className={`App ${isScrolled ? 'scrolled' : ''}`}>
-        {/* <div className='grid-overlay'></div> */}
-        <Header/>
-        <PageContent/>
-        <CircleCursor/>
-        <div className="page-background">      </div>
-      </div>
-
+    <div className={`App ${isScrolled ? 'scrolled' : ''} ${mouseDown ? 'mousedown' : ''}`}>
+      {/* <div className='grid-overlay'></div> */}
+      <Header/>
+      <PageContent/>
+      <CircleCursor/>
+      <div className="page-background"></div>
+    </div>
   );
 }
 

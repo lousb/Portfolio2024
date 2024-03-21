@@ -65,7 +65,7 @@ function Header() {
     // Framer Motion header element
     <header
       className={`${styles["minimal-header"]} minimal-header ${isActive ? `${styles["header-toggled"]} header-toggled` : ''}`} // Set class names based on isActive state
-      onExitComplete={handleNavExitComplete} // Callback when navigation exit animation completes
+ 
     >
       {/* Inner content of the header */}
       <div className={styles["header-inner-content"]}> {/* Set class name for inner content */}
