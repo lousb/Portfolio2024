@@ -878,6 +878,9 @@ body:has(.portfolio-page-container) .project-home{
     }
 }
 @media only screen and (max-width:800px){
+    .active .short-desc-overview>div {
+        margin-top: 0px !important;
+    }
     body:has(.project-details) .header-menu-toggler{
         min-width: 82px !important;
 
