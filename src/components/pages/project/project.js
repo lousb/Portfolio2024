@@ -145,6 +145,7 @@ useEffect(() => {
   });
 }, [index]);
   
+const { largeImage } = sectionData;
 
   if (sectionData.largeImage && sectionData.largeImage.imageUrl) {
     const isVideo = sectionData.largeImage.imageUrl.endsWith(".mp4") || sectionData.largeImage.imageUrl.endsWith(".webm");
@@ -152,12 +153,18 @@ useEffect(() => {
     return (
       <div id={`section-${index}`} className={`large-${isVideo ? 'video' : 'image'}-section`}>
         {isVideo ? (
-          <video autoPlay loop muted playsInline>
-            <source src={sectionData.largeImage.imageUrl} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          <div>
+            {largeImage && largeImage.imageUrl &&(
+              <video autoPlay loop muted playsInline>
+                <source src={sectionData.largeImage.imageUrl} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            )}
+          </div>
+         
+          
         ) : (
-          <img src={sectionData.largeImage.imageUrl} alt={sectionData.largeImage.imageName} />
+          <img src={sectionData.largeImage.imageUrl} alt={sectionData.largeImage.imageName} loading="lazy" />
         )}
       </div>
     );
@@ -194,7 +201,7 @@ useEffect(() => {
             <source src={sectionData.image1.imageUrl.replace(".webm", ".mp4")} type="video/mp4" />
           </video>
         ) : (
-          <img src={sectionData.image1.imageUrl} alt={sectionData.image1.imageName} iid={sectionData.image1.id ? sectionData.image1.id : null}/>
+          <img src={sectionData.image1.imageUrl} alt={sectionData.image1.imageName} iid={sectionData.image1.id ? sectionData.image1.id : null} loading="lazy"/>
         )}
 
         {isVideo2 ? (
@@ -203,7 +210,7 @@ useEffect(() => {
             <source src={sectionData.image2.imageUrl.replace(".webm", ".mp4")} type="video/mp4" />
           </video>
         ) : (
-          <img src={sectionData.image2.imageUrl} alt={sectionData.image2.imageName} id={sectionData.image2.id ? sectionData.image2.id : null}/>
+          <img src={sectionData.image2.imageUrl} alt={sectionData.image2.imageName} id={sectionData.image2.id ? sectionData.image2.id : null} loading="lazy"/>
         )}
       </div>
     );

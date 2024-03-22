@@ -290,7 +290,7 @@ body:has(.project-details) .header-toggled .header-menu-toggler{
     align-self: flex-end;
     
 }
-floatinghead{
+.floating-head{
     background-image: url(/public/AppImages/floatingHead2.webp);
     height: 100%;
     aspect-ratio: 1;
@@ -303,61 +303,61 @@ floatinghead{
     transition: scale 500ms ease !important;
 
 }
-.floating-heads-element:has(floatinghead:hover) floatinghead{
+.floating-heads-element:has(.floating-head:hover) .floating-head{
     scale: 0.98 !important;
 }
-.floating-heads-element:has(floatinghead:hover) floatinghead:hover{
+.floating-heads-element:has(.floating-head:hover) .floating-head:hover{
     scale: 1.02 !important;
 }
-floatinghead.head-2, floatinghead.head-3{
+.floating-head.head-2, .floating-head.head-3{
 
 
     opacity: 1;
     filter: blur(2px);
 }
 
-floatinghead.head-1, floatinghead.head-2, floatinghead.head-4{
+.floating-head.head-1, .floating-head.head-2, .floating-head.head-4{
     transform: scaleX(-0.9);
 }
-floatinghead.head-1{
+.floating-head.head-1{
     transform: scaleX(-0.9) scaleY(0.9);
 }
-floatinghead.head-2{
+.floating-head.head-2{
     transform: rotate(40deg) scale(0.5);
     filter: blur(2.5px);
     top:-40%;
     right:43%;
 }
-floatinghead.head-3{
+.floating-head.head-3{
     transform: rotate(-50deg) scale(0.7);
     top:-20%;
     right:7%;
 }
-floatinghead.head-4{
+.floating-head.head-4{
     filter: blur(3.5px);
     transform: rotate(-170deg) scale(0.4);
     top:-40%;
     right:56%;
 }
-floatinghead.head-5{
+.floating-head.head-5{
     filter: blur(2px);
     transform: rotate(-170deg) scale(1);
     top:100%;
     right:0%;
 }
-floatinghead.head-6{
+.floating-head.head-6{
     filter: blur(1px);
     transform: rotate(110deg) scale(1.2);
     top:0%;
     right:-7%;
 }
-floatinghead.head-7{
+.floating-head.head-7{
     filter: blur(3.5px);
     transform: rotate(-240deg) scale(0.35);
     top:35%;
     right:7%;
 }
-floatinghead.head-8{
+.floating-head.head-8{
     filter: blur(2px);
     transform: rotate(70deg) scale(0.6);
     top:160%;
@@ -594,7 +594,12 @@ body:has(.more-active-project-page) .threejs-background{
     
 }
 .short-desc-overview{
+  
+}
+.short-desc-overview > div{
     transition: all 1500ms ease;
+    position: absolute;
+    width: 100%;
 }
 .active{
     cursor: default;
@@ -630,8 +635,8 @@ body:has(.more-active-project-page) .threejs-background{
     padding-top:10px;
     padding-bottom: 200px !important;
 }
-.active .short-desc-overview{
-    transform: translateY(-200px) !important;
+.active .short-desc-overview > div{
+    margin-top: -200px !important;
 }
 .threejs-wrap{
     position: fixed;
@@ -692,8 +697,9 @@ aspect-ratio: 16/9;
     padding-top:10px !important;
     padding-bottom: 0 !important;
 }
-.project-tile.read-more-tile .short-desc-overview{
-    transform: translateY(0) !important;
+.project-tile.read-more-tile .short-desc-overview > div{
+    transition: all 1500ms ease !important;
+    margin-top: 0 !important;
 }
 .short-desc-links{
     height: 1.4em;

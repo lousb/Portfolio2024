@@ -231,7 +231,7 @@ const projectsData = [
   },
   {
     "title": "ANALYSE MY PROPERTY",
-    "WebsiteLink":'https://analysemyprop.wpengine.com',
+    "WebsiteLink":'https://analysemyproperty.au',
     "index":'amp',
     "description": {
       "short": "Web Design",

@@ -8,7 +8,7 @@ import { Vector3 } from 'three';
 import data from './cameraPositions.json';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import projectsData from './projectsData'
+import projectsData from './projectsData';
 
 
 import { AnimatePresence, useScroll, motion, easeOut } from "framer-motion";
@@ -42,6 +42,9 @@ function Home() {
   
   const [scrollPosition, setScrollPosition] = useState(0);
 
+
+
+ 
   const [activeTileIndex, setActiveTileIndex] = useState(0);
   
   const [moreActive, setMoreActive] = useState(false);
@@ -213,7 +216,7 @@ function CameraPositioning() {
     });
  
  
-    gsap.to("floatinghead.head-5", {
+    gsap.to(".floating-head.head-5", {
       marginBottom: "-20%",
       scrollTrigger: {
         start: "top top",
@@ -223,7 +226,7 @@ function CameraPositioning() {
         trigger:  pageRef.current,
       },
     });
-    gsap.to("floatinghead.head-2", {
+    gsap.to(".floating-head.head-2", {
       marginBottom: "-20%",
       scrollTrigger: {
         start: "top top",
@@ -233,7 +236,7 @@ function CameraPositioning() {
         trigger:  pageRef.current,
       },
     });
-    gsap.to("floatinghead", {
+    gsap.to(".floating-head", {
       top: "-0%",
  
       scrollTrigger: {
@@ -310,7 +313,7 @@ const handleProjectClick = (projectName) => {
       <div className="threejs-wrap">
     
     <Canvas tabIndex={0} className='louis-canvas'>
-        <Suspense fallback={null}>
+        <Suspense fallback={<></>}>
             <LouisModel/>
         </Suspense>
         <fog attach="fog" args={['#354970', 0.5 ,10 ]}/>
@@ -321,13 +324,25 @@ const handleProjectClick = (projectName) => {
     
   <Canvas tabIndex={0} className='project-canvas'>
       <Suspense fallback={null}>
-          <EsotericModel/>
-          <MacsModel/>
-          <InkaModel/>
-          <AMPModel/>
-          <KahilModel/>
-          <BeanModel/>
+          <EsotericModel />
       </Suspense>
+     
+      <Suspense fallback={null}>
+          <MacsModel />
+      </Suspense>
+      <Suspense fallback={null}>
+          <InkaModel />
+      </Suspense>
+      <Suspense fallback={null}>
+          <AMPModel />
+      </Suspense>
+      <Suspense fallback={null}>
+          <KahilModel />
+      </Suspense>
+      <Suspense fallback={null}>
+          <BeanModel />
+      </Suspense>
+
       <fog attach="fog" args={['#354970', 0.8 ,9 ]}/>
       
       <CameraPositioning />
@@ -370,8 +385,7 @@ function Introduction(){
 
   const sectionRef = useRef(null);
   const elementRef = useRef(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
+  
   const handleMouseMove = (e) => {
     const rect = sectionRef.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 200;
@@ -409,31 +423,14 @@ function Introduction(){
 
 
 
-  //every view function
-  useEffect(() => {
-
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            gsap.to('.header-page-id > p', {
-              opacity:1,
-              y: '1.4em',
-              duration: 1,
-              ease: "power2.out",
-            }); 
-           
-          }
-      });
-  },
-  { threshold: 0.99} //adjust the threshold to determine how far into the section to observe
-  );
-
-  observer.observe(sectionRef.current);
-
-  return () => observer.disconnect();
+  useIntersectionObserver(sectionRef, { threshold: 0.99 }, () => {
+    gsap.to('.header-page-id > p', {
+      opacity: 1,
+      y: '1.4em',
+      duration: 1,
+      ease: "power2.out",
+    });
   });
-
 
 
   return(
@@ -444,30 +441,30 @@ function Introduction(){
               <h1 className="main-page-title title loading-title" ref={elementRef}><Reveal element={'span'} textContent={'Louis Wyeeeth'}/></h1>
               <div className="floating-heads-element">
                 <div className="floating-head-inner">
-                <floatinghead className="floating-head head-1">
+                <div className="floating-head head-1">
 
-                </floatinghead>
-                <floatinghead className="floating-head head-2">
+                </div>
+                <div className="floating-head head-2">
                   
-                </floatinghead>
-                <floatinghead className="floating-head head-3">
+                </div>
+                <div className="floating-head head-3">
                   
-                  </floatinghead>
-                  <floatinghead className="floating-head head-4">
+                  </div>
+                  <div className="floating-head head-4">
                   
-                  </floatinghead>
-                  <floatinghead className="floating-head head-5">
+                  </div>
+                  <div className="floating-head head-5">
                   
-                  </floatinghead>
-                  <floatinghead className="floating-head head-6">
+                  </div>
+                  <div className="floating-head head-6">
                   
-                  </floatinghead>
-                  <floatinghead className="floating-head head-7">
+                  </div>
+                  <div className="floating-head head-7">
                   
-                  </floatinghead>
-                  <floatinghead className="floating-head head-8">
+                  </div>
+                  <div className="floating-head head-8">
                   
-                  </floatinghead>
+                  </div>
                 </div>
                 
               </div>
@@ -555,31 +552,15 @@ function About({windowWidth}){
   }, [sectionRef, windowWidth])
   
  
-  //every view function
-  useEffect(() => {
-  
-
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            gsap.to('.header-page-id > p', {
-              opacity:1,
-              y: '0.1em',
-              duration: 1,
-              ease: "power2.out",
-              delay:0.1,
-            }); 
-          }
-      });
-  },
-  { threshold: 0.3} //adjust the threshold to determine how far into the section to observe
-  );
-
-  observer.observe(sectionRef.current);
-
-  return () => observer.disconnect();
-  }, [sectionRef]);
+  useIntersectionObserver(sectionRef, { threshold: 0.3 }, () => {
+    gsap.to('.header-page-id > p', {
+      opacity: 1,
+      y: '0.1em',
+      duration: 1,
+      ease: "power2.out",
+      delay: 0.1,
+    });
+  });
 
   
   return(
@@ -802,8 +783,10 @@ const handleTileClick = (index, project) => {
                 </div>
                 <div className={`project-short-desc ${index === 0 ? 'first-project-desc' : ''}`}>
                   <div className={`short-desc-overview ${index === 0 ? 'first-overview' : ''}`}>
+                  <div>
                     {project.description.short}<br/>
                     {project.status}
+                    </div>
                   </div>
                   <div className="short-desc-tech">{project.techUsed}</div>
                   <div className='short-desc-links-wrap'> 
@@ -834,6 +817,7 @@ function Processes({windowWidth}){
   
 
   const sectionRef = useRef(null);
+  const cardRef = useRef(null);
 
  //every view function
  useEffect(() => {
@@ -976,7 +960,7 @@ gsap.to(".project-canvas>div",{
             <section className="page-four page" ref={sectionRef}>
               <div className="cards-wrap">
               {processData.map((page, index) => (
-                <Card windowWidth={windowWidth} key={index} title={page.title} boxes={page.boxes} className={index} sectionRef={sectionRef}/>
+                <Card ref={cardRef} windowWidth={windowWidth} key={index} title={page.title} boxes={page.boxes} className={index} sectionRef={sectionRef}/>
               ))}
               </div>
             </section>
@@ -1002,5 +986,48 @@ const scrollToAboutSection = () => {
 
  
 };
+
+// Reusable Intersection Observer setup
+const useIntersectionObserver = (ref, options, callback) => {
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          callback();
+        }
+      });
+    }, options);
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, [ref, options, callback]);
+};
+
+// Reusable Scroll Trigger setup
+const useScrollTrigger = (ref, options, callback) => {
+  useEffect(() => {
+    gsap.to(ref.current, {
+      ...options,
+      scrollTrigger: {
+        ...options.scrollTrigger,
+        trigger: ref.current,
+        id: "scrub",
+      },
+      onComplete: callback,
+    });
+
+    return () => {
+      ScrollTrigger.getById("scrub").kill();
+    };
+  }, [ref, options, callback]);
+};
+
 
 export default Home;
