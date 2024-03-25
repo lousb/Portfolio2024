@@ -130,9 +130,6 @@ const getYouTubeVideoId = (url) => {
   return match && match[2].length === 11 ? match[2] : null;
 };
 
-import React, { useEffect } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const LargeImageSection = ({ sectionData, index }) => {
   useEffect(() => {
