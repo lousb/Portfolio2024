@@ -130,39 +130,50 @@ const getYouTubeVideoId = (url) => {
   return match && match[2].length === 11 ? match[2] : null;
 };
 
-const LargeVideoSection = ({ sectionData, index }) => {
+import React, { useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+const LargeImageSection = ({ sectionData, index }) => {
   useEffect(() => {
     gsap.to(`#section-${index}`, {
       opacity: 1,
       y: 0,
-      scale: 1,
+      scale:1,
       scrollTrigger: {
         trigger: `#section-${index}`,
         start: `top ${window.innerHeight}`, // Adjust as needed
-        end: () => '+=100px', // Adjust as needed
+        end:()=>'+=100px', // Adjust as needed
         scrub: 1, // Adjust as needed
       },
     });
   }, [index]);
+  
+  const { largeImage } = sectionData;
 
-  const { largeVideo } = sectionData;
-
-  if (sectionData.largeVideo && sectionData.largeVideo.videoUrl) {
-    const { videoUrl, posterUrl } = sectionData.largeVideo;
+  if (sectionData.largeImage && sectionData.largeImage.imageUrl) {
+    const isVideo = sectionData.largeImage.imageUrl.endsWith(".mp4") || sectionData.largeImage.imageUrl.endsWith(".webm");
 
     return (
-      <div id={`section-${index}`} className="large-video-section">
-        <video autoPlay loop muted playsInline poster={posterUrl}>
-          <source src={videoUrl} type="video/webm" />
-          <source src={videoUrl.replace('.webm', '.mp4')} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+      <div id={`section-${index}`} className={`large-${isVideo ? 'video' : 'image'}-section`}>
+        {isVideo ? (
+          <div>
+            <video autoPlay loop muted playsInline>
+              <source src={sectionData.largeImage.imageUrl} type="video/mp4" />
+              <source src={videoUrl.replace('.webm', '.mp4')} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        ) : (
+          <img src={sectionData.largeImage.imageUrl} alt={sectionData.largeImage.imageName} loading="lazy" />
+        )}
       </div>
     );
   } else {
     return null;
   }
 };
+
 
 const DualImageSection = ({ sectionData, index }) => {
 useEffect(() => {
