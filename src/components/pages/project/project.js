@@ -130,42 +130,33 @@ const getYouTubeVideoId = (url) => {
   return match && match[2].length === 11 ? match[2] : null;
 };
 
-const LargeImageSection = ({ sectionData, index }) => {
-useEffect(() => {
-  gsap.to(`#section-${index}`, {
-    opacity: 1,
-    y: 0,
-    scale:1,
-    scrollTrigger: {
-      trigger: `#section-${index}`,
-      start: `top ${window.innerHeight}`, // Adjust as needed
-      end:()=>'+=100px', // Adjust as needed
-      scrub: 1, // Adjust as needed
-    },
-  });
-}, [index]);
-  
-const { largeImage } = sectionData;
+const LargeVideoSection = ({ sectionData, index }) => {
+  useEffect(() => {
+    gsap.to(`#section-${index}`, {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      scrollTrigger: {
+        trigger: `#section-${index}`,
+        start: `top ${window.innerHeight}`, // Adjust as needed
+        end: () => '+=100px', // Adjust as needed
+        scrub: 1, // Adjust as needed
+      },
+    });
+  }, [index]);
 
-  if (sectionData.largeImage && sectionData.largeImage.imageUrl) {
-    const isVideo = sectionData.largeImage.imageUrl.endsWith(".mp4") || sectionData.largeImage.imageUrl.endsWith(".webm");
+  const { largeVideo } = sectionData;
+
+  if (sectionData.largeVideo && sectionData.largeVideo.videoUrl) {
+    const { videoUrl, posterUrl } = sectionData.largeVideo;
 
     return (
-      <div id={`section-${index}`} className={`large-${isVideo ? 'video' : 'image'}-section`}>
-        {isVideo ? (
-          <div>
-            {largeImage && largeImage.imageUrl &&(
-              <video autoPlay loop muted playsInline>
-                <source src={sectionData.largeImage.imageUrl} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            )}
-          </div>
-         
-          
-        ) : (
-          <img src={sectionData.largeImage.imageUrl} alt={sectionData.largeImage.imageName} loading="lazy" />
-        )}
+      <div id={`section-${index}`} className="large-video-section">
+        <video autoPlay loop muted playsInline poster={posterUrl}>
+          <source src={videoUrl} type="video/webm" />
+          <source src={videoUrl.replace('.webm', '.mp4')} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
     );
   } else {
