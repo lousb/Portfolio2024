@@ -160,6 +160,10 @@ div:has(>.tech-used){
     border-radius: 10px;
 }
 @media only screen and (max-width:800px){
+    .project-details-amp .title{
+        font-size: 8vw;
+        line-height: 8vw;
+    }
     .website-link{
         margin-bottom: 5svw;
     }
