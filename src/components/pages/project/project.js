@@ -148,8 +148,8 @@ const LargeImageSection = ({ sectionData, index }) => {
   
   const { largeImage } = sectionData;
 
-  if (sectionData.largeImage && sectionData.largeImage.imageUrl) {
-    const isVideo = sectionData.largeImage.imageUrl.endsWith(".mp4") || sectionData.largeImage.imageUrl.endsWith(".webm");
+  if (largeImage && largeImage.imageUrl) {
+    const isVideo = largeImage.imageUrl.endsWith(".mp4") || largeImage.imageUrl.endsWith(".webm");
 
     return (
       <div id={`section-${index}`} className={`large-${isVideo ? 'video' : 'image'}-section`}>
@@ -157,7 +157,7 @@ const LargeImageSection = ({ sectionData, index }) => {
           <div>
             <video autoPlay loop muted playsInline>
               <source src={sectionData.largeImage.imageUrl} type="video/mp4" />
-              <source src={videoUrl.replace('.webm', '.mp4')} type="video/mp4" />
+              <source src={sectionData.largeImage.imageUrl.replace('.webm', '.mp4')} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
