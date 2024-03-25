@@ -860,9 +860,7 @@ body:has(.portfolio-page-container) .project-home{
     .louis-canvas canvas{
         transform: translateY(0) !important;
     }
-    .threejs-wrap:has(.louis-canvas){
-        position: absolute;
-    }
+ 
  
     .floating-heads-element{
         align-self: end;
@@ -878,6 +876,9 @@ body:has(.portfolio-page-container) .project-home{
     }
 }
 @media only screen and (max-width:800px){
+    .threejs-wrap:has(.louis-canvas){
+        position: absolute;
+    }
     .active .short-desc-overview>div {
         margin-top: 0px !important;
     }
