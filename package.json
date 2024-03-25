@@ -29,11 +29,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "craco build", // Use 'craco build' for building
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build" // Use 'gh-pages -d build' for deployment
   },
   "eslintConfig": {
     "extends": [
