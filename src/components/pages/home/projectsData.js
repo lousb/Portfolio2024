@@ -51,7 +51,7 @@ const dualDescSection =[
 const projectsData = [
   {
     "title": "ESOTERIC ART STUDIO",
-    "WebsiteLink":'https://the.esoteric.gallery',
+    "WebsiteLink":'https://www.instagram.com/eesotericartstudio/',
     "description": {
       "short": "Biggest Personal Project",
       "longCol1": "Esoteric Art Studio, a self directed multimedia design & development project situated between fashion, form & function.",
