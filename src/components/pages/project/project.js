@@ -156,7 +156,7 @@ const LargeImageSection = ({ sectionData, index }) => {
         {isVideo ? (
           <div>
             <video autoPlay loop muted playsInline>
-              <source src={sectionData.largeImage.imageUrl} type="video/mp4" />
+              <source src={sectionData.largeImage.imageUrl} type="video/webm" />
               <source src={sectionData.largeImage.imageUrl.replace('.webm', '.mp4')} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
