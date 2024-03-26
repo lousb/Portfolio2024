@@ -1,7 +1,6 @@
 // App.js
 import React, {Suspense, useRef, useEffect, useState, useLayoutEffect} from "react";
 import './home.css';
-import anime from "animejs/lib/anime.es.js";
 
 import { Canvas, useThree  } from "@react-three/fiber";
 import { Vector3 } from 'three';

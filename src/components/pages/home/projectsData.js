@@ -69,11 +69,11 @@ const projectsData = [
       }
     }},{"dual-image-section": {
       "image1": {
-        "imageUrl": "/AppImages/ProjectImages/Esoteric/EsotericMovie4.webm",
+        "imageUrl": "/AppImages/ProjectImages/Esoteric/EsotericDual2.webm",
         "imageName": "EsotericMovie1"
       },
       "image2": {
-        "imageUrl": "/AppImages/ProjectImages/Esoteric/EsotericMovie2.webm",
+        "imageUrl": "/AppImages/ProjectImages/Esoteric/EsotericDual1.webm",
         "imageName": "EsotericMovie2"
       }
     }},
@@ -112,7 +112,7 @@ const projectsData = [
         "imageName": "2222"
       },
       "image2": {
-        "imageUrl": "/AppImages/ProjectImages/Esoteric/EsotericDual8.webm",
+        "imageUrl": "/AppImages/ProjectImages/Esoteric/EsotericDual11.webm",
         "imageName": "2222"
       }
     }},
