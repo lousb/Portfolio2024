@@ -1,6 +1,6 @@
 // Project.js
 
-import React, {useEffect, useRef, useLayoutEffect} from "react";
+import React, {useEffect, useRef, useLayoutEffect, memo} from "react";
 import { useParams } from "react-router-dom";
 import projectsData from "../home/projectsData";
 import './project.css';
@@ -131,7 +131,7 @@ const getYouTubeVideoId = (url) => {
 };
 
 
-const LargeImageSection = ({ sectionData, index }) => {
+const LargeImageSection = memo(({ sectionData, index }) => {
   useEffect(() => {
     gsap.to(`#section-${index}`, {
       opacity: 1,
@@ -145,6 +145,7 @@ const LargeImageSection = ({ sectionData, index }) => {
       },
     });
   }, [index]);
+
   
   const { largeImage } = sectionData;
 
@@ -169,10 +170,11 @@ const LargeImageSection = ({ sectionData, index }) => {
   } else {
     return null;
   }
-};
+});
 
 
-const DualImageSection = ({ sectionData, index }) => {
+
+const DualImageSection = memo(({ sectionData, index }) => {
 useEffect(() => {
   gsap.to(`#section-${index}`, {
     opacity: 1,
@@ -216,9 +218,9 @@ useEffect(() => {
   } else {
     return null;
   }
-};
+});
 
-const DualDescSection = ({ sectionData, index }) => {
+const DualDescSection = memo(({ sectionData, index }) => {
 useEffect(() => {
   gsap.to(`#section-${index}`, {
     opacity: 1,
@@ -247,9 +249,9 @@ useEffect(() => {
       <div className="desc2">{renderLines(desc2)}</div>
     </div>
   );
-};
+});
 
-export const ProjectDetails = ({ project }) => {
+export const ProjectDetails = memo(({ project }) => {
   const { title, description, techUsed, readMoreData, index, WebsiteLink, announcement } = project;
 
   const renderSections = () => {
@@ -283,7 +285,7 @@ export const ProjectDetails = ({ project }) => {
           <Reveal custom={6} textContent={`${description.longCol2}`} element={"p"} />
         </div>
         {WebsiteLink?
-        <a href={WebsiteLink} target="_blank" className="website-link main-page-button-secondary">
+        <a href={WebsiteLink} target="_blank" className="website-link main-page-button-secondary" rel="noreferrer">
           <Reveal custom={6} textContent={`Website`} element={"span"} />
         </a>
         :
@@ -309,6 +311,6 @@ export const ProjectDetails = ({ project }) => {
       <Reveal custom={2} textContent={`This system was built with ${techUsed}`} element={"p"} elementClass={'tech-used'}/>
     </div>
   );
-};
+});
 
 export default Project;

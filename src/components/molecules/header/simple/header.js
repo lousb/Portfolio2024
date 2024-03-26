@@ -101,7 +101,7 @@ function Header() {
               <p>{animateChars('Contact')}</p>
             </div>
             <div>
-              <a href="https://www.instagram.com/wyeeeeeeeeeeeeeeeth/" target="_blank">{animateChars('Instagram ')}</a>
+              <a href="https://www.instagram.com/wyeeeeeeeeeeeeeeeth/" target="_blank" rel="noreferrer">{animateChars('Instagram ')}</a>
               <a href={`${process.env.PUBLIC_URL}/Resume-Louis-Wyeth-2024.pdf`} rel="noopener noreferrer" target="_blank">{animateChars('Resumé ')}</a>
             </div>
           </div>

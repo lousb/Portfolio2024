@@ -52,7 +52,7 @@ function Footer() {
           </p>
         </div>
         <div className="footer-links">
-          <a className="main-page-button-primary" target="_blank" href="https://www.instagram.com/wyeeeeeeeeeeeeeeeth/">
+          <a className="main-page-button-primary" target="_blank" href="https://www.instagram.com/wyeeeeeeeeeeeeeeeth/" rel="noreferrer">
             Instagram
           </a>
           <a className="main-page-button-primary" href={`${process.env.PUBLIC_URL}/Resume-Louis-Wyeth-2024.pdf`} rel="noopener noreferrer" target="_blank">

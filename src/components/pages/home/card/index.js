@@ -13,14 +13,14 @@ const Card = ({windowWidth, title, boxes, className, cardId }) => {
   useLayoutEffect(() => { 
     const cardTitleWrap = cardRef.current.querySelector('.card-title-wrap');
     const cardTitle = cardRef.current.querySelector('.card-title-wrap .title');
+    const CurateImage = cardRef.current.querySelector('.card-specific-item.curate');
+    const DefineImage = cardRef.current.querySelector('.card-specific-item.define');
 
 
     const handleMobileViewAnimation = () => {
 
     };
-    const handleTabletViewAnimation = () => {
 
-    };
     const handleDesktopViewAnimation = () => {
    
 // Dynamic ScrollTrigger for the card
@@ -32,7 +32,7 @@ ScrollTrigger.create({
   pinSpacing: false,
 });
 
-gsap.to(cardRef.current.querySelector('.card-title-wrap'),{
+gsap.to(cardTitleWrap,{
   marginTop:()=>`-${window.innerWidth * 0.09 + (window.innerHeight * 0.1 - window.innerWidth * 0.00169) }`,
   scrollTrigger: {
     start: `-100vh top`,
@@ -45,20 +45,7 @@ gsap.to(cardRef.current.querySelector('.card-title-wrap'),{
   
     };
 
-// Dynamic animations specific to this card:
-gsap.fromTo(cardRef.current.querySelector('.card-specific-item.curate'), {
-  y: '50%',
-}, { 
-  y: '-50%',
-  scrollTrigger: {
-    start: `-${window.innerHeight * 0.1} top`,
-    end: () => `+=${window.innerHeight * 4}`,
-    scrub: true,
-    id: `scrub-curate-${cardId}`, 
-    trigger: cardRef.current, 
 
-  },
-});
 
 gsap.fromTo(cardTitle, {
   y: '9svw',
@@ -74,19 +61,7 @@ gsap.fromTo(cardTitle, {
   },
 });
 
-gsap.fromTo(cardRef.current.querySelector('.card-specific-item.define'), {
-  height: '0',
-}, {
-  height: 'auto',
-  scrollTrigger: {
-    start: `-${window.innerHeight} top`,
-    end: () => `+=${window.innerHeight * 0.7}`,
-    scrub: true,
-    id: `scrub-define-${cardId}`,
-    trigger: cardRef.current.querySelector('.card-specific-item.define'),
 
-  },
-});
 
    // Set up initial animations based on current window width
    if (windowWidth <= 800) {
@@ -101,6 +76,40 @@ return () => {
   ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 };
   }, [  cardRef, cardId, windowWidth])
+  
+
+  useLayoutEffect(() => {
+    if (className === 0) {
+      gsap.fromTo('.card-specific-item.curate', {
+        y: '50%',
+      }, { 
+        y: '-50%',
+        scrollTrigger: {
+          start: `-${window.innerHeight * 0.1} top`,
+          end: () => `+=${window.innerHeight * 4}`,
+          scrub: true,
+          id: `scrub-curate-${cardId}`, 
+          trigger: cardRef.current, 
+        },
+      });
+    }
+
+    if (className === 0) {
+      gsap.fromTo('.card-specific-item.define', {
+        height: '0',
+      }, {
+        height: 'auto',
+        scrollTrigger: {
+          start: `-${window.innerHeight} top`,
+          end: () => `+=${window.innerHeight * 0.7}`,
+          scrub: true,
+          id: `scrub-define-${cardId}`,
+          trigger: cardRef.current.querySelector('.card-specific-item.define'),
+        },
+      });
+    }
+  }, [className, cardId]);
+  
 
 
 
