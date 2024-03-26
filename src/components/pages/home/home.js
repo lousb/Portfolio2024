@@ -196,6 +196,7 @@ function CameraPositioning() {
       start: "top top",
       end:`+=${pageRef.current.clientHeight - window.innerHeight - (window.innerWidth * 0.017)}`,
       pin: '.minimal-header',
+      pinSpacer:false,
 
     })
 
