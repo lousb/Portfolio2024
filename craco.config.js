@@ -1,6 +1,5 @@
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 module.exports = {
   webpack: {
@@ -12,36 +11,15 @@ module.exports = {
           ...webpackConfig.optimization,
           minimize: true,
           minimizer: [
-            new TerserPlugin(), // Minify JavaScript
-            new CssMinimizerPlugin(), // Minify CSS
+            // Use TerserPlugin for JavaScript minification
+            new TerserPlugin(),
+            // Use CssMinimizerPlugin for CSS minification
+            new CssMinimizerPlugin(),
           ],
           splitChunks: {
             chunks: 'all',
           },
         };
-
-        // Add ImageMinimizerPlugin for optimizing images
-        webpackConfig.plugins.push(
-          new ImageMinimizerPlugin({
-            minimizerOptions: {
-              // Image minimizer options
-              plugins: [
-                ['jpegtran', { progressive: true }],
-                ['optipng', { optimizationLevel: 5 }],
-                [
-                  'svgo',
-                  {
-                    plugins: [
-                      {
-                        removeViewBox: false,
-                      },
-                    ],
-                  },
-                ],
-              ],
-            },
-          })
-        );
       }
 
       return webpackConfig;
