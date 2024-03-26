@@ -874,11 +874,13 @@ body:has(.portfolio-page-container) .project-home{
     .angry-grid .grid-box-desc{
         font-size: 1.2em !important;
     }
-}
-@media only screen and (max-width:800px){
     .threejs-wrap:has(.louis-canvas){
         position: absolute;
+        top:4%;
     }
+}
+@media only screen and (max-width:800px){
+   
     .active .short-desc-overview>div {
         margin-top: 0px !important;
     }
