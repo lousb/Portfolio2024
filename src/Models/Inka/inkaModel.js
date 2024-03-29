@@ -10,6 +10,9 @@ export default function InkaModel(props) {
   const { nodes, scene } = useGLTF("/Objects/Inka/inka.gltf");
   const ref = useRef();
 
+  const hidden = props.isModelHidden;
+  const activeTileIndex = props.activeTileIndex;
+
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   const texture = useCubeTexture([
@@ -30,26 +33,43 @@ export default function InkaModel(props) {
   }, []);
 
   useFrame(({ viewport }) => {
-    var x = (mousePosition.x / viewport.width ) / 50
-    var y = (mousePosition.y / viewport.height) / 50
+    if(hidden && activeTileIndex === 2){
+        var x = (mousePosition.x / viewport.width ) / 50;
+        var y = (mousePosition.y / viewport.height) / 50;
 
-    // Adjust the object's position based on mouse position
-    const xOffset = mousePosition.x / viewport.width - 0.5;
-    const yOffset = mousePosition.y / viewport.height - 0.5;
+        // Adjust the object's position based on mouse position
+        var xOffset = mousePosition.x / viewport.width - 0.5;
+        var yOffset = mousePosition.y / viewport.height - 0.5;
+    }else{
+  var x = 1 / 50;
+  var y = 1 / 50;
 
-    ref.current.position.x = xOffset * 0.002 - 2.4;
+  // Adjust the object's position based on mouse position
+  var xOffset = 1 - 0.5;
+  var yOffset = 1 - 0.5;
+    }
+    
+    ref.current.position.x = xOffset * 0.002;
     ref.current.position.y = yOffset * 0.002;
-    
+
     ref.current.lookAt(x - 3, y - 98.5, 8);
-    
   });
 
   useFrame(({ clock }) => {
-    ref.current.position.y += Math.sin(clock.getElapsedTime()) * 0.08 - 29.8;
-    ref.current.rotation.z = Math.sin(clock.getElapsedTime()) * 0.005 ;
+    ref.current.rotation.x = -.22;
+    ref.current.rotation.y += 0.2;
+    ref.current.position.y += -29.8;
+    ref.current.position.x += -2.4;
 
-    ref.current.rotation.x = -0.22;
-    ref.current.rotation.y = 0.2;
+    if(hidden && activeTileIndex === 2){
+    ref.current.position.y += Math.sin(clock.getElapsedTime()) * 0.08;
+    ref.current.rotation.z = Math.sin(clock.getElapsedTime()) * 0.005 ;
+    }else{
+      ref.current.rotation.z += -0.37;
+      ref.current.position.y += 0.02;
+    }
+
+  
   });
 
   return (

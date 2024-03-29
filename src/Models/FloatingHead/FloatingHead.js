@@ -11,9 +11,14 @@ export default function LouisModel(props) {
     'Objects/px.png', 'Objects/nx.png', 'Objects/py.png', 'Objects/ny.png', 'Objects/pz.png', 'Objects/nz.png'
   ],{path:'/'});
 
+  const hidden = props.isModelHidden;
+ 
+
   useLayoutEffect(() => {
+    
     function handleMouseMove(event) {
       const { clientX, clientY } = event;
+      
       setMousePosition({ x: clientX, y: clientY });
     }
 
@@ -24,7 +29,11 @@ export default function LouisModel(props) {
     };
   }, []);
 
-  useFrame(({ viewport }) => {
+
+
+  
+      useFrame(({ viewport }) => {
+        if(!hidden){
     const x = (mousePosition.x / viewport.width) / 50;
     const y = (mousePosition.y / viewport.height);
 
@@ -38,17 +47,22 @@ export default function LouisModel(props) {
     eyebrowsRef.current.position.y = yOffset * 0.0003;
    
     ref.current.lookAt(0, 0 , -2);
+        }
   });
 
   useFrame(({ clock }) => {
-    ref.current.position.y = Math.sin(clock.getElapsedTime()) * 0.08 ; 
-    ref.current.position.x -= 2.5;
-    ref.current.position.y = -12.6;
-    ref.current.position.z = 3.4;
-    ref.current.rotation.z = Math.sin(clock.getElapsedTime()) * 0.05 + 2.8; 
-    ref.current.rotation.y = 82;
-    ref.current.rotation.x += 1.3;
+    if(!hidden){
+      ref.current.position.y = Math.sin(clock.getElapsedTime()) * 0.08 ; 
+      ref.current.position.x -= 2.5;
+      ref.current.position.y = -12.6;
+      ref.current.position.z = 3.4;
+      ref.current.rotation.z = Math.sin(clock.getElapsedTime()) * 0.05 + 2.8; 
+      ref.current.rotation.y = 82;
+      ref.current.rotation.x += 1.3;
+    }
+    
   });
+  
 
   return (
     <group dispose={null} ref={ref} scale={5}>

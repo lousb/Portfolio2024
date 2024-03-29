@@ -880,7 +880,9 @@ body:has(.portfolio-page-container) .project-home{
     }
 }
 @media only screen and (max-width:800px){
-   
+   .get-in-touch.email-copied {
+   font-size: 14vw !important;
+   }
     .active .short-desc-overview>div {
         margin-top: 0px !important;
     }
@@ -1083,6 +1085,7 @@ body:has(.portfolio-page-container) .project-home{
         font-size: 1.1em ;
         line-height: 1em;
     }
+   
     .short-desc-links a{
         top:0;
     }

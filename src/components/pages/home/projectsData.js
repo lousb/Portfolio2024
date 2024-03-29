@@ -345,7 +345,7 @@ const projectsData = [
     "description": {
       "short": "TAFE - Diploma",
       "longCol1": `Bean Scene, A multi level comprehensive restaurant management system with access & authentication levels for customers, staff & managers.`,
-      "longCol2": `Accompanied by a mobile application, this system allows staff to allocate dates, layout & times for customers to reserve & redeem in store."`
+      "longCol2": `Accompanied by a mobile application, this system allows staff to allocate dates, layout & times for customers to reserve & redeem in store.`
     },
     'status':'Major Project, Team of 3',
     "techUsed": "C#, ASP.NET MVC, Entity Framework Core & Jquery.  ",

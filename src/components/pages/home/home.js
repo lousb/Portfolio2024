@@ -43,6 +43,7 @@ function Home() {
 
 
 
+  const [isModelHidden, setIsModelHidden] = useState(false); 
  
   const [activeTileIndex, setActiveTileIndex] = useState(0);
   
@@ -308,13 +309,15 @@ const handleProjectClick = (projectName) => {
   setMoreActive(true);
 };
 
+
+
   return (
     <div className={`portfolio-page-container ${clickedProjectName === 'ANALYSE MY PROPERTY' ? 'amp':''} ${moreActive&&'more-active'}`} ref={pageRef}>
       <div className="threejs-wrap">
     
     <Canvas tabIndex={0} className='louis-canvas'>
         <Suspense fallback={<></>}>
-            <LouisModel/>
+            <LouisModel isModelHidden={isModelHidden}/>
         </Suspense>
         <fog attach="fog" args={['#354970', 0.5 ,10 ]}/>
         
@@ -324,23 +327,23 @@ const handleProjectClick = (projectName) => {
     
   <Canvas tabIndex={0} className='project-canvas'>
       <Suspense fallback={null}>
-          <EsotericModel />
+          <EsotericModel isModelHidden={isModelHidden} activeTileIndex={activeTileIndex}/>
       </Suspense>
      
       <Suspense fallback={null}>
-          <MacsModel />
+          <MacsModel isModelHidden={isModelHidden} activeTileIndex={activeTileIndex}/>
       </Suspense>
       <Suspense fallback={null}>
-          <InkaModel />
+          <InkaModel isModelHidden={isModelHidden} activeTileIndex={activeTileIndex}/>
       </Suspense>
       <Suspense fallback={null}>
-          <AMPModel />
+          <AMPModel isModelHidden={isModelHidden} activeTileIndex={activeTileIndex}/>
       </Suspense>
       <Suspense fallback={null}>
-          <KahilModel />
+          <KahilModel isModelHidden={isModelHidden} activeTileIndex={activeTileIndex}/>
       </Suspense>
       <Suspense fallback={null}>
-          <BeanModel />
+          <BeanModel isModelHidden={isModelHidden} activeTileIndex={activeTileIndex}/>
       </Suspense>
 
       <fog attach="fog" args={['#354970', 0.8 ,9 ]}/>
@@ -367,9 +370,9 @@ const handleProjectClick = (projectName) => {
       ) : (
         // Render the default components
           <div>
-          <Introduction />
-          <About windowWidth={windowWidth}/>
-          <Projects setActiveTileIndex={setActiveTileIndex} setMoreActive={setMoreActive} windowWidth={windowWidth} onProjectClick={handleProjectClick}/>
+          <Introduction setIsModelHidden={setIsModelHidden}/>
+          <About setIsModelHidden={setIsModelHidden} windowWidth={windowWidth}/>
+          <Projects setIsModelHidden={setIsModelHidden} isModelHidden={isModelHidden} setActiveTileIndex={setActiveTileIndex} setMoreActive={setMoreActive} windowWidth={windowWidth} onProjectClick={handleProjectClick}/>
           <Processes windowWidth={windowWidth}/>
         </div>
       )}
@@ -381,7 +384,7 @@ const handleProjectClick = (projectName) => {
 }
 
 
-function Introduction(){
+function Introduction({setIsModelHidden}){
 
   const sectionRef = useRef(null);
   const elementRef = useRef(null);
@@ -430,6 +433,8 @@ function Introduction(){
       duration: 1,
       ease: "power2.out",
     });
+
+    setIsModelHidden(false);
   });
 
 
@@ -493,7 +498,7 @@ function Introduction(){
   )
 }
 
-function About({windowWidth}){
+function About({windowWidth, setIsModelHidden}){
 
   const sectionRef = useRef(null);
 
@@ -552,7 +557,7 @@ function About({windowWidth}){
   }, [sectionRef, windowWidth])
   
  
-  useIntersectionObserver(sectionRef, { threshold: 0.3 }, () => {
+  useIntersectionObserver(sectionRef, { threshold: 0.5 }, () => {
     gsap.to('.header-page-id > p', {
       opacity: 1,
       y: '0.1em',
@@ -560,6 +565,8 @@ function About({windowWidth}){
       ease: "power2.out",
       delay: 0.1,
     });
+
+    setIsModelHidden(false);
   });
 
   
@@ -664,6 +671,10 @@ useLayoutEffect(() => {
           entries => {
             entries.forEach(entry => {
               if (entry.isIntersecting) {
+         
+                // Set isModelHidden to true when Projects section is observed
+                props.setIsModelHidden(true);
+                
                 gsap.to('.header-page-id > p', {
                   opacity:1,
                   y: '-1.75em',
@@ -678,7 +689,7 @@ useLayoutEffect(() => {
               }
           });
       },
-      { threshold: 0.3} //adjust the threshold to determine how far into the section to observe
+      { threshold: 0.5} //adjust the threshold to determine how far into the section to observe
     );
 
     observer.observe(sectionRef.current);

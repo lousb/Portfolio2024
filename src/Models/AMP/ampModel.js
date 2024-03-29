@@ -16,6 +16,8 @@ export default function KazanModel(props) {
     'Objects/px.png', 'Objects/nx.png', 'Objects/py.png', 'Objects/ny.png', 'Objects/pz.png', 'Objects/nz.png'
   ],{path:'/'});
 
+  const hidden = props.isModelHidden;
+  const activeTileIndex = props.activeTileIndex;
 
 
 useLayoutEffect(() => {
@@ -32,13 +34,26 @@ useLayoutEffect(() => {
 }, []);
 
   useFrame(({ viewport }) => {
-    var x = (mousePosition.x / viewport.width ) / 50
-    var y = (mousePosition.y / viewport.height) / 50
+    if(hidden && activeTileIndex === 3){
+          var x = (mousePosition.x / viewport.width ) / 50;
+          var y = (mousePosition.y / viewport.height) / 50;
+
+          // Adjust the object's position based on mouse position
+          var xOffset = mousePosition.x / viewport.width - 0.5;
+          var yOffset = mousePosition.y / viewport.height - 0.5;
+      }else{
+    var x = 1 / 50;
+    var y = 1 / 50;
 
     // Adjust the object's position based on mouse position
-    const xOffset = mousePosition.x / viewport.width - 0.5;
-    const yOffset = mousePosition.y / viewport.height - 0.5;
+    var xOffset = 1 - 0.5;
+    var yOffset = 1 - 0.5;
+      }
 
+  
+
+
+    
     ref.current.position.x = xOffset * 0.002 - 1.6;
     ref.current.position.y = yOffset * 0.001;
 
@@ -47,8 +62,16 @@ useLayoutEffect(() => {
   });
   
   useFrame(({ clock }) => {
-    ref.current.position.y += Math.sin(clock.getElapsedTime()) * 0.03 - 41; 
+    ref.current.position.y += -41;
+    ref.current.rotation.z += -0.2;
+
+    if(hidden && activeTileIndex === 3){
+    ref.current.position.y = Math.sin(clock.getElapsedTime()) * 0.03 - 41; 
     ref.current.rotation.z = Math.sin(clock.getElapsedTime()) * 0.005 - 0.1; 
+    }else{
+      ref.current.rotation.z += -0.16;
+      ref.current.position.y += -0.02;
+    }
 
     ref.current.position.z = 1.2;
     ref.current.rotation.x = -0.2;

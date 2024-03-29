@@ -13,6 +13,11 @@ export default function EsotericModel(props) {
   const texture = useCubeTexture([
     'Objects/px.png', 'Objects/nx.png', 'Objects/py.png', 'Objects/ny.png', 'Objects/pz.png', 'Objects/nz.png'
   ],{path:'/'});
+  
+  const hidden = props.isModelHidden;
+  const activeTileIndex = props.activeTileIndex;
+ 
+
 
   useLayoutEffect(() => {
     function handleMouseMove(event) {
@@ -28,21 +33,37 @@ export default function EsotericModel(props) {
   }, []);
 
   useFrame(({ viewport }) => {
-    const x = (mousePosition.x / viewport.width) / 50;
-    const y = (mousePosition.y / viewport.height) / -10;
+    if(hidden && activeTileIndex === 0){
+      var x = (mousePosition.x / viewport.width) / 50;
+      var y = (mousePosition.y / viewport.height) / -10;
 
-    const xOffset = mousePosition.x / viewport.width - 0.5;
-    const yOffset = mousePosition.y / viewport.height - 0.5;
+      var xOffset = mousePosition.x / viewport.width - 0.5;
+      var yOffset = mousePosition.y / viewport.height - 0.5;
+    }else{
 
-    ref.current.position.x = xOffset * 0.003;
-    ref.current.position.y = yOffset * 0.2;
 
-    ref.current.lookAt(x - 3, y - 12.5, 10);
+      var x = 1 / 50;
+      var y = 1 - 10;
+
+      // Adjust the object's position based on mouse position
+      var xOffset = 1 - 0.5;
+      var yOffset = 1 - 0.5;
+    }
+
+
+      
+
+      ref.current.position.x = xOffset * 0.003;
+      ref.current.position.y = yOffset * 0.2;
+
+      ref.current.lookAt(x - 3, y - 15.5, 10);
+  
   });
 
   useFrame(({ clock }) => {
-    ref.current.position.y = Math.sin(clock.getElapsedTime()) * 0.08; 
-    ref.current.rotation.z = Math.sin(clock.getElapsedTime()) * 0.05 - 0.1; 
+ref.current.position.y = Math.sin(clock.getElapsedTime()) * 0.08; 
+ref.current.rotation.z = Math.sin(clock.getElapsedTime()) * 0.05 - 0.1;
+  
   });
 
   return (
