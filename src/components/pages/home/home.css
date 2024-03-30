@@ -372,7 +372,8 @@ body:has(.project-details) .header-toggled .header-menu-toggler{
     min-height: calc(-moz-available * 1.5) ;
     min-height: calc(-webkit-fill-available* 1.5);
     min-height: calc(fill-available* 1.5);
-
+    height:fit-content;
+    margin-bottom: 200px;
 
 }
 .page-three > div{
@@ -387,7 +388,8 @@ body:has(.project-details) .header-toggled .header-menu-toggler{
     flex-direction: column;
     justify-content: center;
     align-items: end;
-    margin-top: 25vh;
+
+    padding-top:20vh;
 }
 .projects-list{
     mix-blend-mode: difference;
@@ -413,7 +415,10 @@ body:has(.project-details) .header-toggled .header-menu-toggler{
 body:has(.page-three.read-more) .project-more-details-desc{
     opacity: 0.99;
 }
-
+.projects-list > .text-reveal-container > .main-page-p{
+    margin-bottom: 20vh;
+    color: #f0b441;
+}
 
 
 .project-tile{
@@ -751,6 +756,10 @@ aspect-ratio: 16/9;
 }
 .page-two{
     height: fit-content;
+    padding-bottom: 20vh;
+}
+.section-start{
+    height:100px
 }
 .pin-spacer{
     pointer-events: none;
@@ -880,6 +889,11 @@ body:has(.portfolio-page-container) .project-home{
     }
 }
 @media only screen and (max-width:800px){
+    .projects-list > .text-reveal-container > .main-page-p{
+    
+        color: #0f4bbe;
+    }
+    
    .get-in-touch.email-copied {
    font-size: 14vw !important;
    }

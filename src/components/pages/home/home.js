@@ -621,7 +621,7 @@ useLayoutEffect(() => {
  gsap.to(".threejs-background",{
    height: "100%",
    scrollTrigger: {
-     start: `-${window.innerHeight *0.4}  top`,
+     start: `-${window.innerHeight *0.2}  top`,
      end: () => `+=${window.innerHeight * 0.5}`,
      scrub: true,
      id: "scrub",
@@ -634,7 +634,7 @@ useLayoutEffect(() => {
    marginTop:'0vh',
    scale:1,
    scrollTrigger: {
-     start: `-${window.innerHeight *0.6}  top`,
+     start: `-${window.innerHeight *0.4}  top`,
      end: () => `+=${window.innerHeight * 0.7}`,
      scrub: true,
      id: "scrub",
@@ -776,6 +776,7 @@ const handleTileClick = (index, project) => {
 
         <div className="projects-wrap pointer-events">
             <div className="projects-list ">
+            <Reveal elementClass={"main-page-p"} element={'div'} textContent={'The following is a collection of personal & professional self directed projects:'}/>
             {projectsData.map((project, index) => (
             
               <div className={`project-tile project-tile-${index} hoverable ${index === activeTileIndex ? 'active' : ''} ${index === readMoreIndex ? 'read-more-tile' : ''}`} key={index} onClick={() => handleTileClick(index, project)}>
