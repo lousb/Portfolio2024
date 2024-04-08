@@ -255,7 +255,7 @@ return () => {
          
 
               {className ===1 && index === 2 && (
-                <img src='/AppItems/visual.svg' alt='visual-graphic' className='card-specific-item visual'/>
+                <img src='/AppItems/VISUAL.svg' alt='visual-graphic' className='card-specific-item visual'/>
               )}
               {className === 0 && index === 4 && (
                 <img src='/AppItems/DEFINE.svg' alt='define-graphic' className='card-specific-item define'/>
