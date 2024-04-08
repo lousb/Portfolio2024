@@ -8,10 +8,10 @@ const LoadingScreen = () => {
   const [intervalCount, setIntervalCount] = useState(0);
   const [timeline, setTimeline] = useState(null);
 
-  //unrendering timer
-  setTimeout(() => {
-    setIsRendered(false);
-  }, 6500);
+  // //unrendering timer
+  // setTimeout(() => {
+  //   setIsRendered(false);
+  // }, 6500);
 
 
   useEffect(() => {
@@ -68,44 +68,53 @@ const LoadingScreen = () => {
       delay: 1.8,
     });
   };
+ 
 
-const repeatAnimation = (tl) => {
-  const interval = setInterval(() => {
-    tl.staggerTo(
-      columnsRef.current[1],
-      0.7,
-      {
-        y: '-=1em',
-        ease: Power3.easeInOut,
-        duration: 0.2,
-      },
-      0 // Change the stagger amount to 0 so it doesn't reset the position
-    );
+ const repeatAnimation = () => {
+   let count = 0;
+   const itemHeight = 1; // Height of each item
 
-    setIntervalCount((prevCount) => {
-      if (prevCount === 4) {
-        clearInterval(interval);
-        setTimeout(() => {
-          tl.to(
-            columnsRef.current[0],
-            0.7,
-            {
-              y: '-=1em',
-              onComplete: () => finalAnimation(tl),
-              ease: Power3.easeInOut,
-              duration: 0.2,
-            }
-          );
-        }, 0); // Add a small delay for the first column animation
-        return 0; // Reset count after reaching 4
-      }
-      return prevCount + 1;
-    });
-    if (intervalCount === 5) {
-      clearInterval(interval);
-    }
-  }, 300); // Repeat every 600ms
-};
+   // Define the loop function
+   const animationLoop = () => {
+    if(isRendered){
+     gsap.to(
+       columnsRef.current[1].children,
+       {
+        y: `-${count}em`,
+         ease: Power3.easeInOut,
+         duration: 0.7,
+         onComplete: () => {
+       
+            count++; // Increment count on each animation iteration
+          
+
+
+           if ((count === 4 || count === 5) && isRendered) { // Check for the 4th iteration
+             gsap.to(
+               columnsRef.current[0].children,
+               {
+                 y: `-=1em`,
+                 ease: Power3.easeInOut,
+                 duration: 0.7,
+                 onComplete:()=>{finalAnimation()},
+               }
+             );
+           }
+
+           if (isRendered) { // Check if the animation should continue
+             animationLoop(); // Continue the loop
+           }
+         },
+       }
+     );}
+   };
+
+   // Start the animation loop
+   animationLoop();
+ };
+  
+      
+  
   
   return (
     <>
