@@ -250,7 +250,7 @@ return () => {
                 <img src='/AppItems/ADOBE.svg' alt='adobe-graphic' className='card-specific-item adobe'/>
               )}
               {className ===2 && index === 2 && (
-                <img src='/AppItems/grid.svg' alt='grid-graphic' className='card-specific-item grid'/>
+                <img src='/AppItems/Grid.svg' alt='grid-graphic' className='card-specific-item grid'/>
               )}
          
 
@@ -273,7 +273,7 @@ return () => {
                           <img src='/AppItems/js.svg' alt='curate-graphic' className='card-specific-item js'/>
                         )}
                         {className === 1 && index === 1 && (
-                          <img src='/AppItems/THREE.gif' alt='curate-graphic' className='card-specific-item three'/>
+                          <img src='/AppItems/three.gif' alt='curate-graphic' className='card-specific-item three'/>
                         )}
 
             {className === 0 && index === 2 && (
