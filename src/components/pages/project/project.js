@@ -252,7 +252,7 @@ useEffect(() => {
 });
 
 export const ProjectDetails = memo(({ project }) => {
-  const { title, description, techUsed, readMoreData, index, WebsiteLink, announcement } = project;
+  const { title, description, techUsed, readMoreData, index, WebsiteLink, contribution, announcement } = project;
 
   const renderSections = () => {
     return readMoreData.map((sectionData, index) => {
@@ -284,19 +284,31 @@ export const ProjectDetails = memo(({ project }) => {
           <Reveal custom={6} textContent={`${description.longCol1}`} element={"p"} />
           <Reveal custom={6} textContent={`${description.longCol2}`} element={"p"} />
         </div>
+        <div className="extra-details-flex">
         {WebsiteLink?
-        <a href={WebsiteLink} target="_blank" className="website-link main-page-button-secondary" rel="noreferrer">
-          <Reveal custom={6} textContent={`Website`} element={"span"} />
-        </a>
-        :
-        <></>
+        <>
+            <a href={WebsiteLink} target="_blank" className="website-link main-page-button-secondary" rel="noreferrer">
+              <Reveal custom={6} textContent={`Website`} element={"span"} />
+              
+            </a>
+
+            
+
+          </>
+          
+          :
+          <></>
+          }
+             {announcement? 
+            <Reveal custom={6} textContent={announcement} element={"span"} elementClass={'announcement'}/>:<></>}
+          {contribution?
+         <Reveal custom={6} textContent={contribution} element={"span"} elementClass={'announcement'}/>
+         :
+         <></> 
         }
-        {announcement?
+        </div>
         
-          <Reveal custom={6} textContent={announcement} element={"span"} elementClass={'announcement'}/>
-        :
-        <></>
-        }
+
 
      
    

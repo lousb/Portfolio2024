@@ -159,11 +159,25 @@ div:has(>.tech-used){
     height: 100%;
     border-radius: 10px;
 }
+.extra-details-flex{
+    display: flex;
+    justify-content: space-between;
+}
+.extra-details-flex > div{
+    width: 49.5%;
+}
 @media only screen and (max-width:800px){
     
     .project-details-amp .title{
         font-size: 8vw;
         line-height: 8vw;
+    }
+    .extra-details-flex{
+        flex-direction: column;
+    }
+    .extra-details-flex > div{
+        width: 100%;
+        padding-bottom: 2em;
     }
     .website-link{
         margin-bottom: 5svw;

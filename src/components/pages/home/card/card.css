@@ -261,7 +261,7 @@
     object-fit: cover;
     object-position: top center;
   }
-  .card-specific-item.curate{
+  .card-specific-item.curate, .card-specific-item.adobe, .card-specific-item.grid{
     top: 5em;
     right: 1.5svw;
     width: calc(50% - 3svw);
@@ -269,6 +269,7 @@
     transform: scale(0.7);
     transform-origin: top center;
   }
+
   .card-specific-item.iterate{
  
     height: 100%;
@@ -361,9 +362,37 @@
   align-items: end;
 }
 
+.card-specific-item.visual{
+  top:20%;
+  right:0%;
+  width: 100%;
+  max-height: 50%;
 
+  position: absolute;
+}
+.card-specific-item.three, .card-specific-item.js{
+  position: absolute;
+  right:1.5svw;
+  bottom: 1.5svw;
+  aspect-ratio: 1;
+  height: 80px;
+  transform-origin: bottom right;
+}
+.card-specific-item.figma{
+aspect-ratio: 1;
+height: 80px;
+transform-origin: bottom left;
+padding-bottom: 1.5svw;
+}
+.card-specific-item.three{
+  height: 100px;
+  filter: invert(1);
+}
 
   @media only screen and (max-width:800px){
+    .card-specific-item.grid{
+      display: none;
+    }
     .card-2, .card-2 .angry-grid{
       margin-top:0svw !important;
     }
@@ -569,12 +598,43 @@
     position: absolute;
     bottom:4svw;
   }
+  .card-specific-item.js, .card-specific-item.card-specific-item.three{
+    right:4svw;
+    bottom:4svw;
+  }
+  .grid-box-desc:has( .card-specific-item.figma) .text-reveal-container{
+    padding-right: 52%;
+  }
+  .card-specific-item.adobe {
+    margin-top: -40%;
+  }
+  .grid-box-desc:has( .card-specific-item.adobe){
+    width: 100%;
+  }
+  .card-2 .item-4 .text-reveal-container{
+    padding-right: 52%;
+  }
+  .grid-box-desc:has( .card-specific-item.adobe) .text-reveal-container{
+    padding-right: 52%;
+
+  }
+  .card-specific-item.figma{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding-bottom: 0;
+  }
+  .card-specific-item.visual{
+    top:-120%;
+    max-height: 100%;
+  }
   .card-0 .item-4 .grid-box-desc > div{
     width: 48%;
   }
   .grid-box-desc:has(.card-specific-item.define){
     width: calc(100% - 10svw);
   }
+ 
   .card-specific-item.define {
     width: 45%;
     height: auto !important;

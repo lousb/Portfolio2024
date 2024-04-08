@@ -17,6 +17,7 @@ import { Link, Navigate, useNavigate, useNavigation } from "react-router-dom";
 import DelayLink from "../../../utils/delayLink";
 import Reveal from "../../../utils/textElementReveal/textElementReveal";
 import SmoothScrollLink from "../../../utils/scrollLink";
+import LoadingScreen from "../../molecules/loadingScreen/loadingScreen";
 
 
 
@@ -313,6 +314,7 @@ const handleProjectClick = (projectName) => {
 
   return (
     <div className={`portfolio-page-container ${clickedProjectName === 'ANALYSE MY PROPERTY' ? 'amp':''} ${moreActive&&'more-active'}`} ref={pageRef}>
+      <LoadingScreen/>
       <div className="threejs-wrap">
     
     <Canvas tabIndex={0} className='louis-canvas'>
@@ -398,7 +400,7 @@ function Introduction({setIsModelHidden}){
 
     floatingHeads.forEach((head) => {
       const variation = {
-        deltaX: 0.002 + 0.02, // Random value between 0.003 and 0.005
+        deltaX: 0.002 + 0.02, // Random value between 0.003 & 0.005
         deltaY: 0.002 + 0.03,
       };
 
@@ -446,30 +448,14 @@ function Introduction({setIsModelHidden}){
               <h1 className="main-page-title title loading-title" ref={elementRef}><Reveal element={'span'} textContent={'Louis Wyeeeth'}/></h1>
               <div className="floating-heads-element">
                 <div className="floating-head-inner">
-                <div className="floating-head head-1">
-
-                </div>
-                <div className="floating-head head-2">
-                  
-                </div>
-                <div className="floating-head head-3">
-                  
-                  </div>
-                  <div className="floating-head head-4">
-                  
-                  </div>
-                  <div className="floating-head head-5">
-                  
-                  </div>
-                  <div className="floating-head head-6">
-                  
-                  </div>
-                  <div className="floating-head head-7">
-                  
-                  </div>
-                  <div className="floating-head head-8">
-                  
-                  </div>
+                <img loading="lazy" src='/AppImages/floatingHead2.webp' className="floating-head head-1"/>
+                <img src='/AppImages/floatingHead2.webp' className="floating-head head-2"/>
+                <img src='/AppImages/floatingHead2.webp' className="floating-head head-3"/>
+                <img src='/AppImages/floatingHead2.webp' className="floating-head head-4"/>
+                <img src='/AppImages/floatingHead2.webp' className="floating-head head-5"/>
+                <img src='/AppImages/floatingHead2.webp' className="floating-head head-6"/>
+                <img src='/AppImages/floatingHead2.webp' className="floating-head head-7"/>
+                <img src='/AppImages/floatingHead2.webp' className="floating-head head-8"/>
                 </div>
                 
               </div>
@@ -557,7 +543,7 @@ function About({windowWidth, setIsModelHidden}){
   }, [sectionRef, windowWidth])
   
  
-  useIntersectionObserver(sectionRef, { threshold: 0.5 }, () => {
+  useIntersectionObserver(sectionRef, { threshold: 0.4 }, () => {
     gsap.to('.header-page-id > p', {
       opacity: 1,
       y: '0.1em',
@@ -568,16 +554,16 @@ function About({windowWidth, setIsModelHidden}){
 
     setIsModelHidden(false);
   });
+ 
 
   
   return(
     <section className="page-two page" ref={sectionRef} >
     <p className="main-page-p">
-        Louis Wyeth. I'm a designer who crafts intuitive, end-to-end products, focusing on scalable systems and user-friendly interfaces to empower interaction. I thrive in collaborative settings, using a precise process to develop modern ways to engage with media and culture.
+        Louis Wyeth. I'm a designer who crafts intuitive, end-to-end products, focusing on scalable systems & user-friendly interfaces to empower interaction. I thrive in collaborative settings, using a precise process to develop modern ways to engage with media & culture.
     </p>
     <p className="main-page-p">
-      My background includes a diploma in software development TAFENSW, over 4 years of professional experience, and over 7 years building websites, solving complex problems, and showcasing local brands.
-    </p>
+      With four years of professional experience and a Diploma in Software Development, I bring a love for crafting exceptional websites. I thrive on untangling complex challenges and iterating on innovative ideas to deliver impactful results for my clients.<br/><br/> Currently focused on empowering local brands and businesses, making a real difference in their online presence.</p>
     </section>
   )
 }
@@ -689,7 +675,7 @@ useLayoutEffect(() => {
               }
           });
       },
-      { threshold: 0.5} //adjust the threshold to determine how far into the section to observe
+      { threshold: 0.3} //adjust the threshold to determine how far into the section to observe
     );
 
     observer.observe(sectionRef.current);
@@ -795,6 +781,9 @@ const handleTileClick = (index, project) => {
                 </div>
                 <div className={`project-short-desc ${index === 0 ? 'first-project-desc' : ''}`}>
                   <div className={`short-desc-overview ${index === 0 ? 'first-overview' : ''}`}>
+                    <div className={`project-contribution`}>
+                      <span>{project.contribution}</span>
+                    </div>
                   <div>
                     {project.description.short}<br/>
                     {project.status}

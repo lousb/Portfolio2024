@@ -57,6 +57,7 @@ const projectsData = [
       "longCol1": "Esoteric Art Studio, a self directed multimedia design & development project situated between fashion, form & function.",
       "longCol2": "The studio aims to deliver high quality, low quantity products, focused on sustainable physical & digital experience."
     },
+    "contribution":"(Personal Project)",
     "techUsed": "JS, CSS, PHP, STRIPE, GSAP, P5.JS, API, LOCAL STORAGE, CHECKOUT, TRANSITIONS",
     "status": "Ongoing",
     "links": "Read More",
@@ -136,7 +137,8 @@ const projectsData = [
      "longCol1": "Max Dona, a web based cinematography portfolio. Accompanied by interaction, beautiful visuals & a custom Content Management System.",
      "longCol2": "The goal driving Max's website: Create the best website I can. Through hours invested, design's tested & care for every step of the process."
    },
-   "techUsed": "REACT, NoSQL, ANIME.JS, GSAP, REST API, LOCAL STORAGE, ADMIN LOGIN",
+   "contribution":"(Personal Project)",
+   "techUsed": "REACT, FIREBASE, ANIME.JS, GSAP, REST API, LOCAL STORAGE & ADMIN LOGIN",
    "status": "Coming Soon",
    "links": "Read More",
    "mobileModel":"/AppImages/ProjectImages/MaxDona/MaxModel.webp",
@@ -193,7 +195,8 @@ const projectsData = [
       "longCol2": "This project focused on connecting the bold & beautiful nature of tradition with the intimacy & romance of the present."
     },
     'status':'Motion Design',
-    "techUsed": "SVG, LAZY LOADING, SCROLL ANIMATIONS, ILLUSTRATOR, PHOTOSHOP",
+    "contribution":"(During Employment)",
+    "techUsed": "SVG, LAZY LOADING, SCROLL ANIMATIONS, ILLUSTRATOR, CONTACT API, IFrame Config & PHOTOSHOP",
     "links": "Read More",
     "mobileModel":"/AppImages/ProjectImages/Inka/InkaModel.webp",
     "readMoreData": [
@@ -232,6 +235,7 @@ const projectsData = [
   {
     "title": "ANALYSE MY PROPERTY",
     "WebsiteLink":'https://analysemyproperty.au',
+    "contribution":"(During Employment)",
     "index":'amp',
     "description": {
       "short": "Web Design",
@@ -239,7 +243,7 @@ const projectsData = [
       "longCol2": "This project encompassed logo & branding, from packaging to packages, cards & website. Communicated through a consistently clear art direction."
     },
     'status':'Branding',
-    "techUsed": "JS, CSS, PHP, STRIPE, GSAP, P5.JS, API, LOCAL STORAGE, MOTION EFFECTS",
+    "techUsed": "JS, CSS, Wordpress, STRIPE, GSAP, InDesign, Digital and Print PDF & Design Systems",
     "links": "Read More",
     "mobileModel":"/AppImages/ProjectImages/AMP/ampModel.webp",
     "readMoreData": [
@@ -295,13 +299,14 @@ const projectsData = [
   {
     "title": "KAHIL FOODS",
     "WebsiteLink":'https://kahilfoods.wpengine.com',
+    "contribution":"(During Employment)",
     "description": {
       "short": "E-Commerce",
       "longCol1": `Kahil Foods, a large scale comprehensive e-commerce system. Managing & maintaining over 100 products, product data & stock.`,
       "longCol2": `Embracing & communicating 50 years of award winning history & heritage illustrated within the website through quality content & imagery.`
     },
     'status':'Web Design',
-    "techUsed": "JS, HTML, CSS, HORIZONTAL SCROLL, LAZY LOADING",
+    "techUsed": "WORDPRESS, WOO-COMMERCE, STRIPE, AFTERPAY CSV, JS, CSS & JQuery",
     "links": "Read More",
     "mobileModel":"/AppImages/ProjectImages/KahilMeats/KahilModel.webp",
     "readMoreData": [
@@ -341,7 +346,7 @@ const projectsData = [
   },
   {
     "title": "BEANSCENE",
-
+    "contribution":"(During Education)",
     "description": {
       "short": "TAFE - Diploma",
       "longCol1": `Bean Scene, A multi level comprehensive restaurant management system with access & authentication levels for customers, staff & managers.`,

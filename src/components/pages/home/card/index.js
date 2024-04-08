@@ -79,6 +79,11 @@ return () => {
   
 
   useLayoutEffect(() => {
+
+    const handleMobileViewAnimation = () => {
+
+    };
+    const handleDesktopViewAnimation = () => {
     if (className === 0) {
       gsap.fromTo('.card-specific-item.curate', {
         y: '50%',
@@ -108,7 +113,99 @@ return () => {
         },
       });
     }
-  }, [className, cardId]);
+    if (className === 1) {
+      gsap.fromTo('.card-specific-item.js', {
+        scale: '1',
+      }, {
+        scale: '1.2',
+        scrollTrigger: {
+          start: `-${window.innerHeight} top`,
+          end: () => `+=${window.innerHeight * 0.7}`,
+          scrub: true,
+          id: `scrub-define-${cardId}`,
+          trigger: cardRef.current.querySelector('.card-specific-item.js'),
+        },
+      });
+
+      gsap.fromTo('.card-specific-item.three', {
+        scale: '1',
+      }, {
+        scale: '1.2',
+        scrollTrigger: {
+          start: `-${window.innerHeight} top`,
+          end: () => `+=${window.innerHeight * 0.7}`,
+          scrub: true,
+          id: `scrub-define-${cardId}`,
+          trigger: cardRef.current.querySelector('.card-specific-item.three'),
+        },
+      });
+
+      gsap.fromTo('.card-specific-item.visual', {
+        scale: '0.9',
+        rotate:'-20deg',
+      }, {
+        scale: '1.1',
+        rotate:'-0deg',
+        scrollTrigger: {
+          start: `-${window.innerHeight} top`,
+          end: () => `+=${window.innerHeight * 1}`,
+          scrub: true,
+          id: `scrub-define-${cardId}`,
+          trigger: cardRef.current.querySelector('.card-specific-item.visual'),
+        },
+      });
+
+     gsap.fromTo('.card-specific-item.figma', {
+       scale: '1',
+     }, {
+       scale: '1.2',
+       scrollTrigger: {
+         start: `-${window.innerHeight * 0.5} top`,
+         end: () => `+=${window.innerHeight * 0.7}`,
+         scrub: true,
+         id: `scrub-define-${cardId}`,
+         trigger: cardRef.current.querySelector('.card-specific-item.figma'),
+       },
+     });
+    }
+
+    gsap.fromTo('.card-specific-item.adobe', {
+        y: '50%',
+      }, { 
+        y: '-20%',
+        scrollTrigger: {
+          start: `-${window.innerHeight * 2} top`,
+          end: () => `+=${window.innerHeight * 4}`,
+          scrub: true,
+          id: `scrub-adobe-${cardId}`, 
+          trigger: cardRef.current.querySelector('.card-specific-item.adobe'), 
+        },
+      });
+
+
+      gsap.fromTo('.card-specific-item.grid', {
+        y: '50%',
+      }, { 
+        y: '-20%',
+        scrollTrigger: {
+          start: `-${window.innerHeight * 2} top`,
+          end: () => `+=${window.innerHeight * 4}`,
+          scrub: true,
+          id: `scrub-grid-${cardId}`, 
+          trigger: cardRef.current.querySelector('.card-specific-item.grid'), 
+        },
+      });
+    };
+
+      // Set up initial animations based on current window width
+       if (windowWidth <= 800) {
+        handleMobileViewAnimation();
+      } else {
+         handleDesktopViewAnimation();
+
+       }
+    
+  }, [className, cardId, windowWidth]);
   
 
 
@@ -136,11 +233,29 @@ return () => {
                 <h4 className="grid-box-title">{box.title || ''}</h4>
                 <h4 className="grid-box-subtitle">{box.subtitle || ''}</h4>
             </div>
+
+            
             
             <div className="grid-box-desc">
+            {className ===2 && index === 0 && (
+                <img src='/AppItems/figma.svg' alt='figma-graphic' className='card-specific-item figma'/>
+              )}
+
               <Reveal element={'p'} textContent={box.desc}/>
               {className === 0 && index === 3 && (
                 <Reveal element={'p'} textContent={box.desc2} elementClass={'box-2'}/>
+              )}
+
+              {className ===2 && index === 1 && (
+                <img src='/AppItems/ADOBE.svg' alt='adobe-graphic' className='card-specific-item adobe'/>
+              )}
+              {className ===2 && index === 2 && (
+                <img src='/AppItems/grid.svg' alt='grid-graphic' className='card-specific-item grid'/>
+              )}
+         
+
+              {className ===1 && index === 2 && (
+                <img src='/AppItems/visual.svg' alt='visual-graphic' className='card-specific-item visual'/>
               )}
               {className === 0 && index === 4 && (
                 <img src='/AppItems/DEFINE.svg' alt='define-graphic' className='card-specific-item define'/>
@@ -152,6 +267,14 @@ return () => {
             {className === 0 && index === 0 && (
               <img src='/AppItems/CURATE.svg' alt='curate-graphic' className='card-specific-item curate'/>
             )}
+
+
+            {className === 1 && index === 0 && (
+                          <img src='/AppItems/js.svg' alt='curate-graphic' className='card-specific-item js'/>
+                        )}
+                        {className === 1 && index === 1 && (
+                          <img src='/AppItems/THREE.gif' alt='curate-graphic' className='card-specific-item three'/>
+                        )}
 
             {className === 0 && index === 2 && (
               <div className='iterate-flex'>

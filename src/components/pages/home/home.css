@@ -191,6 +191,10 @@ body:has(.project-details) .header-toggled .header-menu-toggler{
     position: relative;
     z-index: 100;
 }
+.scrolled .main-page-intro{
+    z-index: 1000 !important;
+}
+
 .footer-links a{
     text-decoration: none;
 }
@@ -291,7 +295,8 @@ body:has(.project-details) .header-toggled .header-menu-toggler{
     
 }
 .floating-head{
-    background-image: url(/public/AppImages/floatingHead2.webp);
+    /* background-image: url(/public/AppImages/floatingHead2.webp); */
+    object-fit: cover;
     height: 100%;
     aspect-ratio: 1;
     mix-blend-mode: darken;
@@ -306,6 +311,7 @@ body:has(.project-details) .header-toggled .header-menu-toggler{
 .floating-heads-element:has(.floating-head:hover) .floating-head{
     scale: 0.98 !important;
 }
+
 .floating-heads-element:has(.floating-head:hover) .floating-head:hover{
     scale: 1.02 !important;
 }
@@ -365,6 +371,36 @@ body:has(.project-details) .header-toggled .header-menu-toggler{
 }
 
 
+.num-column-1 *{
+    text-align: right;
+}
+.site-title-container{
+    position: fixed;
+    top:0;
+    left: 0;
+    height:100svh;
+
+    display: flex;
+width: 94.6svw;
+padding-inline: 2.7svw;
+    align-items: center;
+}
+.site-title-wrap{
+    height:fit-content;
+    display: flex;
+    overflow: hidden;
+}
+.site-title-wrap .site-title{
+    margin-block:0; 
+   
+
+    font-size: 12.52vw;
+    transform: translateY(1em) scale(0.8);
+    transform-origin: center center;
+    letter-spacing: -0.8vw;
+    font-weight: 800;
+    color: var(--primary-color);
+}
 
 .page-three{
 
@@ -374,6 +410,8 @@ body:has(.project-details) .header-toggled .header-menu-toggler{
     min-height: calc(fill-available* 1.5);
     height:fit-content;
     margin-bottom: 200px;
+    margin-top:-50vh;
+
 
 }
 .page-three > div{
@@ -464,7 +502,7 @@ body:has(.page-three.read-more) .project-more-details-desc{
 .project-short-desc{
     position: relative;
 
-    height:1px;
+    height:0px;
     overflow: visible;
     color:var(--main-invert);
     font-size: 0.6em;
@@ -751,10 +789,14 @@ aspect-ratio: 16/9;
     max-width:  calc(82px * 4);
     
 }
+/* .scrolled .header-page-id > p{
+    transform: translate(0px, 0.1em);
+} */
 .page-two .main-page-p{
    width: 556px;
 }
 .page-two{
+    margin-bottom: 60vh;
     height: fit-content;
     padding-bottom: 20vh;
 }
@@ -856,6 +898,57 @@ body:has(.portfolio-page-container) .project-home{
     transition: 100ms ease-out all 0ms, margin 500ms cubic-bezier(0.76, 0, 0.24, 1);
     margin-top: 1.5em !important;
 }
+.loading-container{
+    transition: all 1200ms cubic-bezier(0.76, 0, 0.24, 1);
+}
+.cursor > div, header > div > div{
+    scale: 1 !important;
+   
+    transform-origin: bottom right;
+}
+.project-tile.active .short-desc-overview > div:not(.project-contribution){
+    font-size:1.2em !important;
+}
+body:has(.loading-container) .cursor circle, body:has(.loading-container) header > div > div{
+    scale: 0.01 !important;
+}
+.short-desc-overview > div{
+    font-size: 1.02em !important;
+}
+.loading-numbers > div{
+    font-weight: 600;
+}
+
+
+.loading-container.hide{
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0) !important;
+}
+.loading-container .main-page-title .text-reveal-element{
+height: 1em;
+}
+.main-page-intro{
+    z-index: 9999;
+    opacity: 0;
+}
+.short-desc-overview > .project-contribution{
+    position: absolute;
+    font-size: 1.8em !important;
+    bottom: calc(40px - 1.2em);
+    overflow: hidden;
+    display: flex;
+}
+.grid-box-desc .box-2{
+    align-items: start;
+}
+.short-desc-overview > .project-contribution span{
+
+    transform: translateY(100%);
+    color: #F0B441 !important;
+    transition: 600ms ease-out all;
+}
+.project-tile.active .short-desc-overview > .project-contribution span{
+    transform: translateY(0%);
+}
 @media screen and (max-width: 1350px) {
     .page-two{
         display:flex;
@@ -889,6 +982,19 @@ body:has(.portfolio-page-container) .project-home{
     }
 }
 @media only screen and (max-width:800px){
+    .project-contribution{
+        display: none !important;
+    }
+    .site-title-container{
+        width: 90svw;
+        padding-inline: 5svw;
+    }
+    .page-two{
+        margin-bottom: 30vh;
+    }
+    .site-title{
+        font-size: 11.95vw !important;
+    }
     .projects-list > .text-reveal-container > .main-page-p{
     
         color: #0f4bbe;

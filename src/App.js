@@ -8,7 +8,7 @@ import PageContent from './components/pages/pageContent.js';
 import Footer from './components/molecules/footer/small/footer.js';
 import useScroll from "./utils/useScroll.js";
 import CircleCursor from "./utils/circleCursor.js";
-import { TweenMax } from 'gsap'; // Import GSAP library
+import gsap, { TweenMax } from 'gsap'; // Import GSAP library
 
 //context - Make sure to use the correct import name here
 import MouseCursor from "./utils/mouseCursor";
@@ -38,6 +38,21 @@ function App() {
     };
   }, []);
 
+  useEffect(()=>{
+    if(isScrolled){
+      gsap.to('.header-page-id > p', {
+        opacity: 1,
+        y: '0.1em',
+        duration: 1,
+        ease: "power2.out",
+        delay: 0.1,
+      });
+    }else{
+      return
+    };
+
+  },[isScrolled])
+  
   return (
     <div className={`App ${isScrolled ? 'scrolled' : ''} ${mouseDown ? 'mousedown' : ''}`}>
       {/* <div className='grid-overlay'></div> */}

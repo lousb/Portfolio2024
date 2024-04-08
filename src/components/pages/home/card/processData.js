@@ -26,7 +26,7 @@ const processData = [
        
         {
           'title': 'Define',
-          'desc':"Once a project's development path is clear, its market position is carefully defined. Target audience, goals, campaigns, & trends are considered to maximize relevance, resonance, longevity, & impact upon launch.",
+          'desc':"Once a project's development path is clear, its market position is carefully defined. Target audience, goals, campaigns, & trends are considered to maximize relevance, resonance, & impact upon launch.",
           'image': ''
         },
       ]

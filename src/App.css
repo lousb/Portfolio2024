@@ -1,7 +1,9 @@
 
-html{
-
-
+html *{
+  cursor:none !important
+}
+circle{
+  display: none;
 }
 body{
     margin:0;
@@ -110,13 +112,21 @@ body{
   
 
 }
+
+.App:not(.scrolled) .loading-numbers{
+  display: flex !important;
+}
 body:has(a:hover) circle, body:has(.hoverable:not(.active):hover) circle{
   scale: 3;
 
 }
+
 .cursor__ball{
 
 }
 .mousedown .cursor__ball circle, .mousedown .cursor circle{
   scale: 10;
+}
+body, .App, html{
+  overflow-y: hidden !important;
 }
