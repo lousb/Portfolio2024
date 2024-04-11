@@ -16,6 +16,9 @@ body{
   
   
   }
+  body:has( .safari-user) header{
+      display: none !important; 
+  }
 
   section{
     overflow-x: hidden;

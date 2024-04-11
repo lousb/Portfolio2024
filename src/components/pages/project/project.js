@@ -252,7 +252,7 @@ useEffect(() => {
 });
 
 export const ProjectDetails = memo(({ project }) => {
-  const { title, description, techUsed, readMoreData, index, WebsiteLink, contribution, announcement } = project;
+  const { title, description, techUsed, readMoreData, index, WebsiteLink, contribution, announcement, Instagram } = project;
 
   const renderSections = () => {
     return readMoreData.map((sectionData, index) => {
@@ -286,15 +286,24 @@ export const ProjectDetails = memo(({ project }) => {
         </div>
         <div className="extra-details-flex">
         {WebsiteLink?
-        <>
+
+          <div>
             <a href={WebsiteLink} target="_blank" className="website-link main-page-button-secondary" rel="noreferrer">
               <Reveal custom={6} textContent={`Website`} element={"span"} />
               
             </a>
+            {Instagram?
+            <a href={Instagram} target="_blank" className="website-link main-page-button-secondary" rel="noreferrer">
+              <Reveal custom={6} textContent={'Instagram'} element={"span"}/>
+
+            </a>
+              
+            :<></>}
+            </div>
 
             
 
-          </>
+
           
           :
           <></>

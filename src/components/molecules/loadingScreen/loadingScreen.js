@@ -8,111 +8,147 @@ const LoadingScreen = () => {
   const [intervalCount, setIntervalCount] = useState(0);
   const [timeline, setTimeline] = useState(null);
 
-  // //unrendering timer
-  // setTimeout(() => {
-  //   setIsRendered(false);
-  // }, 6500);
+  //unrendering timer
+  
 
 
-  useEffect(() => {
-    if (isVisible) {
-      const tl = new TimelineMax();
-      setTimeline(tl);
-      repeatAnimation(tl);
-    } else {
-      // Cleanup when component unmounts or isVisible becomes false
-      if (timeline) {
-        timeline.kill(); // Cancel GSAP animations
-      }
-      clearInterval(intervalCount); // Clear the interval
+useEffect(() => {
+  // Define a variable to store the animation loop
+  let animationLoopId;
+
+  // Start the animation loop
+  if (isVisible) {
+    const tl = new TimelineMax();
+    setTimeline(tl);
+    animationLoopId = repeatAnimation(tl);
+  }
+
+  // Cleanup function
+  return () => {
+    // Stop GSAP animations
+    if (timeline) {
+      timeline.kill();
     }
+    clearInterval(intervalCount); // Clear the interval
 
-    // Event listener for scroll
-    const handleScroll = (tl) => {
-        if (window.scrollY > 0) {
-          // If scrolled past the top, trigger final animation immediately
-          finalAnimation(tl);
-          setTimeout(() => {
-            setIsRendered(false);
-          }, 3200);
-        }
-      };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [isVisible]);
-
-  const finalAnimation = (tl) => {
-    gsap.to('.site-title', {
-      y: 0,
-      duration: 1,
-      delay:0.6,
-      ease: 'power2.out',
-      transform: 'scale(1)',
-    });
-    gsap.to('.site-title-container', {
-      duration: 2,
-      height: 'auto',
-      delay: 0.2,
-      ease: 'power2.out',
-    onComplete: () => {
-        setIsVisible(false);
-    },
-    });
-    gsap.to('.main-page-intro', {
-      duration: 1,
-      opacity: 1,
-      delay: 1.8,
-    });
+    // Stop the animation loop
+    cancelAnimationFrame(animationLoopId);
   };
+
+}, [isVisible]);
+  
+useEffect(() => {
+  // Event listener for scroll
+  const handleScroll = () => {
+    if (window.scrollY > 0) {
+      // If scrolled past the top, trigger final animation immediately
+      finalAnimation();
+      setTimeout(() => {
+        setIsRendered(false);
+      }, 2200);
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll);
+
+  // Cleanup function for removing event listener
+  return () => {
+    window.removeEventListener('scroll', handleScroll);
+  };
+
+}, []);
+
+
+  const finalAnimation = () => {
+    const titleElement = document.querySelector('.site-title');
+    const titleContainerElement = document.querySelector('.site-title-container');
+
+    if (titleElement && titleContainerElement) {
+      gsap.to(titleElement, {
+        y: 0,
+        duration: 1,
+        delay: 0.4,
+        ease: 'power2.out',
+        transform: 'scale(1)',
+      });
+      gsap.to(titleContainerElement, {
+        duration: 1.5,
+        height: 'auto',
+        ease: 'power2.out',
+        onComplete: () => {
+          setIsVisible(false);
+        },
+      });
+      gsap.to('.main-page-intro', {
+        duration: 1,
+        opacity: 1,
+        delay: 1.4,
+      });
+    } else {
+      setIsVisible(false); // Set isVisible to false if the elements are not found
+    }
+  };
+  
  
 
- const repeatAnimation = () => {
-   let count = 0;
-   const itemHeight = 1; // Height of each item
+const repeatAnimation = (tl) => {
+  let count = 0;
+  const itemHeight = 1; // Height of each item
 
-   // Define the loop function
-   const animationLoop = () => {
-    if(isRendered){
-     gsap.to(
-       columnsRef.current[1].children,
-       {
-        y: `-${count}em`,
-         ease: Power3.easeInOut,
-         duration: 0.7,
-         onComplete: () => {
-       
-            count++; // Increment count on each animation iteration
-          
+  // Define the loop function
+  const animationLoop = () => {
+    if (isRendered) {
+      const columnRef = columnsRef.current[1];
+      if (columnRef && columnRef.children) {
+        gsap.to(
+          columnRef.children,
+          {
+            y: `-${count}em`,
+            ease: Power3.easeInOut,
+            duration: 0.7,
+            onComplete: () => {
+              count++; // Increment count on each animation iteration
 
+              if ((count === 4 || count === 5) && isRendered) { // Check for the 4th iteration
+                const firstColumnRef = columnsRef.current[0];
+                setTimeout(()=>{
+                  finalAnimation();
+                }, 800)
+                if (firstColumnRef && firstColumnRef.children) {
+                  gsap.to(
+                    firstColumnRef.children,
+                    {
+                      y: `-=1em`,
+                      ease: Power3.easeInOut,
+                      duration: 0.7,
+                      
+                    }
+                  );
+                }
+              }
+              if ((count === 6) && isRendered) {
+                
+                setTimeout(() => {
+                  setIsRendered(false);
+                }, 1600);
+                return;
+              }
 
-           if ((count === 4 || count === 5) && isRendered) { // Check for the 4th iteration
-             gsap.to(
-               columnsRef.current[0].children,
-               {
-                 y: `-=1em`,
-                 ease: Power3.easeInOut,
-                 duration: 0.7,
-                 onComplete:()=>{finalAnimation()},
-               }
-             );
-           }
+              if (isRendered) { // Check if the animation should continue
+                animationLoopId = requestAnimationFrame(animationLoop); // Continue the loop
+              }
+            },
+          }
+        );
+      }
+    }
+  };
 
-           if (isRendered) { // Check if the animation should continue
-             animationLoop(); // Continue the loop
-           }
-         },
-       }
-     );}
-   };
-
-   // Start the animation loop
-   animationLoop();
- };
-  
+  // Start the animation loop and return the animation loop ID
+  let animationLoopId = requestAnimationFrame(animationLoop);
+  return animationLoopId;
+};
+        
       
   
   
