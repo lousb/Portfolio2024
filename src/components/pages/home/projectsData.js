@@ -80,7 +80,7 @@ const projectsData = [
       }
     }},
     {"dual-desc-section": {
-      "desc1": "The studio connects customer to commerce with an intuitive online shop platform where they can purchase & peruse my products & designs. The website has been completely custom coded & accopanying e-commerce with experiental design & interactive experience.",
+      "desc1": "The studio connects customer to commerce with an intuitive online shop platform where they can purchase & peruse my products & designs. The website has been completely custom coded & accopanying e-commerce with experimental design & interactive experience.",
       "desc2": "Overall, The Studio utilisies editorial direction & enduring elements of culture to deliver unisex designs through modern media. \n The focus on the intially released concept, campaign & brand is to explore the duality of gender. Through unisex products, people & philosphies."
     }},
     {"large-image-section": {
@@ -299,7 +299,6 @@ const projectsData = [
   },
   {
     "title": "KAHIL FOODS",
-    "WebsiteLink":'https://kahilfoods.wpengine.com',
     "contribution":"(During Employment)",
     "description": {
       "short": "E-Commerce",

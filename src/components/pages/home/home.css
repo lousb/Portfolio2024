@@ -927,7 +927,7 @@ body:has(.loading-container) .cursor circle, body:has(.loading-container) header
 height: 1em;
 }
 .main-page-intro{
-    z-index: 9999;
+    z-index: 9997;
     opacity: 0;
 }
 .short-desc-overview > .project-contribution{
@@ -1234,6 +1234,11 @@ height: 1em;
     }
     .header-toggled .header-menu-toggler{
         min-width: 100%;
+    }
+    body:has(.project-details) .header-toggled .header-menu-toggler{
+        width: 328px !important;
+        min-width: 100% !important; 
+        transform: scale(1) !important;
     }
 }
 @media only screen and (max-width:550px){
