@@ -174,7 +174,7 @@
     font-weight: 800;
 }
 .main-page-title {
-    font-size: 12.52vw;
+    font-size: 12.5vw;
     letter-spacing: -0.8vw;
     font-weight: 800;
     color:var(--primary-color);
@@ -394,7 +394,7 @@ padding-inline: 2.7svw;
     margin-block:0; 
    
 
-    font-size: 12.52vw;
+    font-size: 12.5vw;
     transform: translateY(1em) scale(0.8);
     transform-origin: center center;
     letter-spacing: -0.8vw;
