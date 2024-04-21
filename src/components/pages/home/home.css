@@ -175,7 +175,7 @@
 }
 .main-page-title {
     font-size: 12.5vw;
-    letter-spacing: -0.8vw;
+letter-spacing: -0.058em;
     font-weight: 800;
     color:var(--primary-color);
    
@@ -288,7 +288,7 @@ body:has(.project-details) .header-toggled .header-menu-toggler{
     max-height: 30vh;
     width: 100%;
     position: relative;
-    margin-left: -2%;
+    margin-right: 2% !important;
     margin-top: -6%;
     min-width: 150vh;
     align-self: flex-end;
@@ -381,8 +381,8 @@ body:has(.project-details) .header-toggled .header-menu-toggler{
     height:100svh;
 
     display: flex;
-width: 94.6svw;
-padding-inline: 2.7svw;
+    justify-content: center;
+width: 100svw;
     align-items: center;
 }
 .site-title-wrap{
@@ -397,7 +397,8 @@ padding-inline: 2.7svw;
     font-size: 12.5vw;
     transform: translateY(1em) scale(0.8);
     transform-origin: center center;
-    letter-spacing: -0.8vw;
+letter-spacing: -0.058em;
+
     font-weight: 800;
     color: var(--primary-color);
 }
@@ -488,7 +489,7 @@ body:has(.page-three.read-more) .project-more-details-desc{
     font-size: 4.87vw;
     font-weight: 800;
     color:var(--main-invert);
-    letter-spacing: -0.3vw;
+    letter-spacing: -0.065em;
     padding-top: 5px;
 
 
@@ -869,7 +870,7 @@ body:has(.portfolio-page-container) .project-home{
 .more-active-project-name > .text-reveal-container> h1{
     font-size: 9vw;
     line-height: 9vw;
-    letter-spacing: -0.5vw;
+    letter-spacing: -0.05em;
     color: var(--primary-color);
     margin-top:-5px;
 }

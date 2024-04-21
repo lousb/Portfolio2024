@@ -371,7 +371,7 @@ const handleProjectClick = (projectName) => {
       </div>
       ) : (
         // Render the default components
-          <div>
+          <div className="pages-wrap">
           <Introduction setIsModelHidden={setIsModelHidden}/>
           <About setIsModelHidden={setIsModelHidden} windowWidth={windowWidth}/>
           <Projects setIsModelHidden={setIsModelHidden} isModelHidden={isModelHidden} setActiveTileIndex={setActiveTileIndex} setMoreActive={setMoreActive} windowWidth={windowWidth} onProjectClick={handleProjectClick}/>
@@ -411,7 +411,7 @@ function Introduction({setIsModelHidden}){
       const newY = centerY + deltaY;
 
       gsap.to(head, {
-        x: newX,
+        xPercent: newX/2,
 
         ease: easeOut,
       });
@@ -892,6 +892,8 @@ gsap.to(".project-canvas>div",{
     width: "94.5vw",
     height:'100%',
     top:'1.7svw',
+    left:'50%',
+    x:'-50%',
     scrollTrigger: {
       start: `-340 top`,
       end: () => `+=200`,
