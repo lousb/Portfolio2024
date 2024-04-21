@@ -1172,8 +1172,9 @@ height: 1em;
     .main-page-p{
         max-width: 90svw;
     }
-    .main-page-title{
-        font-size: 11.95vw;
+    .main-page-title, .site-title{
+        font-size: 11.9vw !important;
+        padding-top: 0.2em;
     }
     .header-menu-toggler{
         transform: scale(0.6) !important;
