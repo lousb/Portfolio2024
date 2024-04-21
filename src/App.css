@@ -11,7 +11,7 @@ body{
     width:100svw;
     
     overflow-x: hidden;
-    overflow-y: scroll;
+
     position: relative;
   
   
@@ -123,7 +123,4 @@ body:has(a:hover) circle, body:has(.hoverable:not(.active):hover) circle{
 }
 .mousedown .cursor__ball circle, .mousedown .cursor circle{
   scale: 10;
-}
-body, .App, html{
-  overflow-y: hidden !important;
 }
