@@ -91,6 +91,9 @@ font-size: 9vw;
 letter-spacing: -0.05em;
     color: var(--primary-color);
 }
+.dual-less-section .text-reveal-element{
+    padding:0 !important
+}
 body:has(.project-details) .header-menu-toggler{
 
     transform: scale(0.8) !important;

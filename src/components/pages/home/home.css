@@ -178,9 +178,11 @@
 letter-spacing: -0.058em;
     font-weight: 800;
     color:var(--primary-color);
-   
+   text-align: center;
+   width: 100vw;
     
 }
+
 body:has(.project-details) .header-toggled .header-menu-toggler{
     width: 328px !important;
     min-width: 328px !important;
@@ -382,9 +384,11 @@ body:has(.project-details) .header-toggled .header-menu-toggler{
 
     display: flex;
     justify-content: center;
-width: 100svw;
+width: fit-content;
+padding-inline: 2.7svw;
     align-items: center;
 }
+
 .site-title-wrap{
     height:fit-content;
     display: flex;
