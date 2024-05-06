@@ -221,6 +221,7 @@ const projectsData = [
       "desc1": "This thoughtfully crafted website offers a streamlined experience, facilitating bookings through a user-friendly third-party system. Its functionality extends beyond mere reservations, encompassing essential features such as a comprehensive menu display, a visually captivating gallery, & crucial contact information.",
       "desc2": "As users navigate through the virtual experience, they are greeted with an intuitive interface that efficiently guides them through the booking process. Inka embodies a sophisticated yet accessible approach to connecting patrons with a vibrant culinary experience with its user-centric design & array of interactive features."
     }},
+
     {"dual-image-section": {
       "image1": {
         "imageUrl": "/AppImages/ProjectImages/Inka/InkaDual3.png",

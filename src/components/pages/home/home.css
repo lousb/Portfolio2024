@@ -879,8 +879,8 @@ body:has(.portfolio-page-container) .project-home{
     margin-top:-5px;
 }
 .portfolio-page-container.amp .text-reveal-container> h1{
-    font-size: 8.44vw;
-    line-height: 8.44vw;
+    font-size: 8.3vw;
+    line-height: 8.3vw;
 }
 .large-video-section{
     aspect-ratio: 16/9;
