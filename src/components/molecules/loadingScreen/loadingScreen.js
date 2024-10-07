@@ -44,7 +44,7 @@ useEffect(() => {
       // If scrolled past the top, trigger final animation immediately
       finalAnimation();
       setTimeout(() => {
-        setIsRendered(false);
+        // setIsRendered(false);
       }, 2200);
     }
   };
@@ -76,7 +76,7 @@ useEffect(() => {
         height: 'auto',
         ease: 'power2.out',
         onComplete: () => {
-          setIsVisible(false);
+          // setIsVisible(false);
         },
       });
       gsap.to('.main-page-intro', {
@@ -85,7 +85,7 @@ useEffect(() => {
         delay: 1.4,
       });
     } else {
-      setIsVisible(false); // Set isVisible to false if the elements are not found
+      // setIsVisible(false); // Set isVisible to false if the elements are not found
     }
   };
   
@@ -128,9 +128,9 @@ const repeatAnimation = (tl) => {
               }
               if ((count === 6) && isRendered) {
                 
-                setTimeout(() => {
-                  setIsRendered(false);
-                }, 1600);
+                // setTimeout(() => {
+                //   setIsRendered(false);
+                // }, 1600);
                 return;
               }
 
@@ -154,7 +154,7 @@ const repeatAnimation = (tl) => {
   
   return (
     <>
-    {isRendered && 
+  {isRendered && 
     <div
       className={`loading-container ${isVisible ? '' : 'hide'}`}
       style={styles.container}
@@ -186,7 +186,7 @@ const repeatAnimation = (tl) => {
         </div>
       </div>
     </div>
-    }
+    } 
       
     </>
   );

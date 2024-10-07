@@ -325,7 +325,7 @@ const handleProjectClick = (projectName) => {
         
     </Canvas>
     </div>
-     <div className="threejs-wrap">
+     <div className="threejs-wrap project-canvas-wrap">
     
   <Canvas tabIndex={0} className='project-canvas'>
       <Suspense fallback={null}>
