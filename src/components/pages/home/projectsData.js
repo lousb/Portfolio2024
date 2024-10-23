@@ -132,13 +132,15 @@ const projectsData = [
   },
  {
    "title": "MAX DONA",
-   "announcement":"(In Development)",
+   "WebsiteLink":'https://maxdona.com.au',
    "description": {
      "short": "Web Dev & Design",
      "longCol1": "Max Dona, a web based cinematography portfolio. Accompanied by interaction, beautiful visuals & a custom Content Management System.",
      "longCol2": "The goal driving Max's website: Create the best website I can. Through hours invested, design's tested & care for every step of the process."
    },
-   "contribution":"(Personal Project)",
+   "contribution":"(In Development)",
+   "announcement":"Pre-production Desktop Demo",
+
    "techUsed": "REACT, FIREBASE, ANIME.JS, GSAP, REST API, LOCAL STORAGE & ADMIN LOGIN",
    "status": "Coming Soon",
    "links": "Read More",

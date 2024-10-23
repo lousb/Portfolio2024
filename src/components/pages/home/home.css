@@ -182,6 +182,9 @@ letter-spacing: -0.058em;
    width: 100vw;
     
 }
+.more-active-project-name span{
+    white-space: nowrap !important;
+}
 
 body:has(.project-details) .header-toggled .header-menu-toggler{
     width: 328px !important;
@@ -495,6 +498,7 @@ body:has(.page-three.read-more) .project-more-details-desc{
     color:var(--main-invert);
     letter-spacing: -0.065em;
     padding-top: 5px;
+    white-space: nowrap !important;
 
 
 }
