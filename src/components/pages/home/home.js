@@ -792,7 +792,7 @@ const handleTileClick = (index, project) => {
                   <div className="short-desc-tech">{project.techUsed}</div>
                   <div className='short-desc-links-wrap'> 
                    <div className="short-desc-links" onClick={() => handleReadMoreClick(index, project)}><p className="link-read-more">Read More -></p>
-                      <DelayLink  delay={11700} className="link-view-more" to={`/${project.title.toLowerCase().replace(/\s/g, '-')}`}>
+                      <DelayLink  delay={1700} className="link-view-more" to={`/${project.title.toLowerCase().replace(/\s/g, '-')}`}>
                         Case Study ->
                       </DelayLink>
                     </div>
