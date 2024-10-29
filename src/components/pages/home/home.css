@@ -302,6 +302,7 @@ body:has(.project-details) .header-toggled .header-menu-toggler{
 .floating-head{
     /* background-image: url(/public/AppImages/floatingHead2.webp); */
     object-fit: cover;
+    user-select: none;
     height: 100%;
     aspect-ratio: 1;
     mix-blend-mode: darken;
@@ -604,7 +605,7 @@ body:has(.page-three.read-more) .project-more-details-desc{
     height: 0px;
     border-radius: 1em;
     transform: scale(0.713);
-    
+    clip-path: inset(0 0 0 0);
 }
 body:has(.more-active-project-page) .threejs-background-wrap{
     width:calc(94.5svw);

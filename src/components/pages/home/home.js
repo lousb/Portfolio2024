@@ -441,7 +441,7 @@ function Introduction({setIsModelHidden}){
 
 
   return(
-      <section className="page-one page" ref={sectionRef}>
+      <section className="page-one page" id="page-one" ref={sectionRef}>
           <div className="first-page-background"></div>
           <div className="first-page-wrap">
 
@@ -558,7 +558,7 @@ function About({windowWidth, setIsModelHidden}){
 
   
   return(
-    <section className="page-two page" ref={sectionRef} >
+    <section className="page-two page" id='page-two' ref={sectionRef} >
     <p className="main-page-p">
         Louis Wyeth. I'm a designer who crafts intuitive, end-to-end products, focusing on scalable systems & user-friendly interfaces to empower interaction. I thrive in collaborative settings, using a precise process to develop modern ways to engage with media & culture.
     </p>
@@ -629,7 +629,38 @@ useLayoutEffect(() => {
    },
  });
 
+  // First animation
+  gsap.to(".project-canvas>div", {
+    y: '-100vh',
+    scrollTrigger: {
+      trigger: sectionRef.current,
+      start: "bottom+=200 bottom", // 400px from bottom
+      end: ()=> '+=400',       // 0px from bottom
+      scrub: true,
+      id: "scrub",
+    },
+  });
 
+  // Second animation
+  gsap.fromTo(
+    ".threejs-background",
+    { clipPath: 'inset(0% 0% 0% 0% round 10px)' },
+    {
+      clipPath: 'inset(0% 0% 100% 0% round 50px)',
+      borderRadius: '0px',
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "bottom+=200 bottom", // 400px from bottom
+        end: ()=> '+=400',        // 0px from bottom
+        scrub: true,
+        id: "scrub",
+      },
+    }
+  );
+
+  
+
+    
    
   
   };
@@ -817,157 +848,148 @@ function Processes({windowWidth}){
 
   
 
-  const sectionRef = useRef(null);
-  const cardRef = useRef(null);
+//   const sectionRef = useRef(null);
+//   const cardRef = useRef(null);
 
- //every view function
- useEffect(() => {
+//  //every view function
+//  useEffect(() => {
 
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          gsap.to('.header-page-id > p', {
-            opacity:0,
-            y: '-3.75em',
-            duration: 1,
-            ease: "power2.out",
-          }); 
-          gsap.to('.header-menu-toggler', {
-            maxWidth:83,
+//   const observer = new IntersectionObserver(
+//     entries => {
+//       entries.forEach(entry => {
+//         if (entry.isIntersecting) {
+//           gsap.to('.header-page-id > p', {
+//             opacity:0,
+//             y: '-3.75em',
+//             duration: 1,
+//             ease: "power2.out",
+//           }); 
+//           gsap.to('.header-menu-toggler', {
+//             maxWidth:83,
    
-            ease: "power2.out",
-          }); 
-        }
-    });
-},
-{ threshold: 0.1} //adjust the threshold to determine how far into the section to observe
-);
+//             ease: "power2.out",
+//           }); 
+//         }
+//     });
+// },
+// { threshold: 0.1} //adjust the threshold to determine how far into the section to observe
+// );
 
 
-observer.observe(sectionRef.current);
+// observer.observe(sectionRef.current);
 
 
-return () => {
-  observer.disconnect();
+// return () => {
+//   observer.disconnect();
  
-};
-});
+// };
+// });
 
   
 
-  useLayoutEffect(() => { 
+//   useLayoutEffect(() => { 
 
 
-    const handleMobileViewAnimation = () => {
+//     const handleMobileViewAnimation = () => {
 
-    };
-    const handleTabletViewAnimation = () => {
+//     };
+//     const handleTabletViewAnimation = () => {
 
-    };
-    const handleDesktopViewAnimation = () => {
+//     };
+//     const handleDesktopViewAnimation = () => {
    
-gsap.to(".project-canvas>div",{
-  y:'-100vh',
-  scrollTrigger: {
-    start: `-${window.innerHeight * 0.6} top`,
-    end: () => `+=400`,
-    scrub: true,
-    id: "scrub",
-    trigger:  sectionRef.current,
+// 
+// });
+//   gsap.to(".threejs-background",{
+//     scale: "1",
+//     scrollTrigger: {
+//       start: `-350 top`,
+//       end: () => `+=310`,
+//       scrub: true,
+//       id: "scrub",
+//       trigger:  sectionRef.current,
+//     },
+//   });
+//   gsap.fromTo(".threejs-background-wrap", {width: '46.6svw'},{
+//     width: "94.5vw",
+//     height:'100%',
+//     top:'1.7svw',
+//     left:'50%',
+//     x:'-50%',
+//     scrollTrigger: {
+//       start: `-340 top`,
+//       end: () => `+=200`,
+//       scrub: true,
+//       id: "scrub",
+//       trigger:  sectionRef.current,
 
-  },
-});
-  gsap.to(".threejs-background",{
-    scale: "1",
-    scrollTrigger: {
-      start: `-350 top`,
-      end: () => `+=310`,
-      scrub: true,
-      id: "scrub",
-      trigger:  sectionRef.current,
-    },
-  });
-  gsap.fromTo(".threejs-background-wrap", {width: '46.6svw'},{
-    width: "94.5vw",
-    height:'100%',
-    top:'1.7svw',
-    left:'50%',
-    x:'-50%',
-    scrollTrigger: {
-      start: `-340 top`,
-      end: () => `+=200`,
-      scrub: true,
-      id: "scrub",
-      trigger:  sectionRef.current,
+//     },
+//   });
+//   gsap.to(".cards-wrap .angry-grid",{
 
-    },
-  });
-  gsap.to(".cards-wrap .angry-grid",{
+//     marginTop:`-${window.innerHeight}`,
+//     scrollTrigger: {
+//       start: `bottom bottom`,
+//       end:()=>`+=${window.innerHeight}`,
+//       scrub: true,
+//       id: "scrub",
+//       trigger:  sectionRef.current,
+//     },
+//   });
+//   gsap.to("header",{
 
-    marginTop:`-${window.innerHeight}`,
-    scrollTrigger: {
-      start: `bottom bottom`,
-      end:()=>`+=${window.innerHeight}`,
-      scrub: true,
-      id: "scrub",
-      trigger:  sectionRef.current,
-    },
-  });
-  gsap.to("header",{
+//     marginTop:`-${window.innerHeight*0.3 + 82}`,
+//     scrollTrigger: {
+//       start: `bottom bottom`,
+//       end:()=>`+=${window.innerHeight}`,
+//       scrub: true,
+//       id: "scrub",
+//       trigger:  sectionRef.current,
+//     },
+//   });
+//   gsap.to(".card-2",{
 
-    marginTop:`-${window.innerHeight*0.3 + 82}`,
-    scrollTrigger: {
-      start: `bottom bottom`,
-      end:()=>`+=${window.innerHeight}`,
-      scrub: true,
-      id: "scrub",
-      trigger:  sectionRef.current,
-    },
-  });
-  gsap.to(".card-2",{
-
-    top:0,
-    scrollTrigger: {
-      start: `bottom bottom`,
-      end:()=>`+=${window.innerHeight}`,
-      scrub: true,
-      id: "scrub",
-      trigger:  sectionRef.current,
-    },
-  });
+//     top:0,
+//     scrollTrigger: {
+//       start: `bottom bottom`,
+//       end:()=>`+=${window.innerHeight}`,
+//       scrub: true,
+//       id: "scrub",
+//       trigger:  sectionRef.current,
+//     },
+//   });
 
 
-    };
+//     };
 
 
 
-   // Set up initial animations based on current window width
-   if (windowWidth <= 800) {
-    handleMobileViewAnimation();
-  } else {
-     handleDesktopViewAnimation();
-   }
+//    // Set up initial animations based on current window width
+//    if (windowWidth <= 800) {
+//     handleMobileViewAnimation();
+//   } else {
+//      handleDesktopViewAnimation();
+//    }
 
 
-    return () => {
-    };
-  }, [sectionRef, windowWidth])
+//     return () => {
+//     };
+//   }, [sectionRef, windowWidth])
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start start', 'end end']
-  })
+//   const { scrollYProgress } = useScroll({
+//     target: sectionRef,
+//     offset: ['start start', 'end end']
+//   })
 
-    return(
-            <section className="page-four page" ref={sectionRef}>
-              <div className="cards-wrap">
-              {processData.map((page, index) => (
-                <Card ref={cardRef} windowWidth={windowWidth} key={index} title={page.title} boxes={page.boxes} className={index} sectionRef={sectionRef}/>
-              ))}
-              </div>
-            </section>
-    )
+//     return(
+//             <section className="page-four page" ref={sectionRef}>
+//               <div className="cards-wrap">
+//               {processData.map((page, index) => (
+//                 <Card ref={cardRef} windowWidth={windowWidth} key={index} title={page.title} boxes={page.boxes} className={index} sectionRef={sectionRef}/>
+//               ))}
+//               </div>
+//             </section>
+//     )
 }
 
 const scrollToAboutSection = () => {

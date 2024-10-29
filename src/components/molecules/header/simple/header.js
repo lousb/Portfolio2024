@@ -61,6 +61,13 @@ function Header() {
     ));
   };
 
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     // Framer Motion header element
     <header
@@ -94,11 +101,10 @@ function Header() {
            
             </div>
             <div>
-              <p>{animateChars('Home')}</p>
-              <p>{animateChars('About')}</p>
-              <p>{animateChars('Projects')}</p>
-              <p>{animateChars('Process')}</p>
-              <p>{animateChars('Contact')}</p>
+            <a onClick={() => scrollToSection('page-one')}>{animateChars('Home')}</a>
+              <a onClick={() => scrollToSection('page-two')}>{animateChars('About')}</a>
+              <a onClick={() => scrollToSection('page-three')}>{animateChars('Projects')}</a>
+              <a onClick={() => scrollToSection('contact')}>{animateChars('Contact')}</a>
             </div>
             <div>
               <a href="https://www.instagram.com/wyeeeeeeeeeeeeeeeth/" target="_blank" rel="noreferrer">{animateChars('Instagram ')}</a>
