@@ -63,6 +63,7 @@ function Header() {
 
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
+    setIsActive(false);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }

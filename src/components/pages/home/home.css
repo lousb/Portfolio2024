@@ -881,6 +881,7 @@ body:has(.portfolio-page-container) .project-home{
     line-height: 9vw;
     letter-spacing: -0.05em;
     color: var(--primary-color);
+    white-space:nowrap;
     margin-top:-5px;
 }
 .portfolio-page-container.amp .text-reveal-container> h1{

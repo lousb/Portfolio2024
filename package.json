@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://wyeeeth.com",
   "dependencies": {
+    "@craco/craco": "^7.1.0",
     "@react-three/drei": "^9.93.0",
     "@studio-freight/lenis": "^1.0.33",
     "@testing-library/jest-dom": "^5.17.0",
