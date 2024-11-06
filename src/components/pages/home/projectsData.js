@@ -372,8 +372,17 @@ const projectsData = [
       "desc2": "By defining three distinct user roles & their corresponding access levels, Bean Scene's system ensures that each stakeholder can effectively manage their responsibilities, leading to a more cohesive & integrated dining experience for all involved."
     }},
     {"dual-desc-section": {
-      "desc1": "The system has 4 levels of access: - Manager – Full access to the system including booking for Customer, access to all reservations, updating reservations status, scheduling sittings & creating employee profiles. - Employee – Same access as Manager, excluding scheduling sittings & creating employee profiles. -  Customer – Access to make an online reservation based on sitting availability within the system. - Member – Access to make an online reservation with user information auto filled on booking & additionally being able to view booking history.",
-      "desc2": "A Mobile App was developed for the system. There are 2 levels of access - Member - On sign in is presented with past reservations with each reservation generating a unique QR Code for identification. - Employee/Manager - On sign in is presented with a QR Code scanner to scan Members QR Codes & display the reservation details. The Mobile App was built using React Native & made use of JSON Web Token Authentication, RestAPI’s & additional libraries"
+      "desc1": "The system provides four levels of access, each tailored to specific roles and permissions.",
+      "desc2": "Customers have access to make online reservations based on available sittings within the system. This access level allows them to book directly without additional privileges."
+    }},
+    ,
+    {"dual-desc-section": {
+      "desc1": "Managers have full access to the system, allowing them to handle a wide range of administrative tasks. They can make bookings on behalf of customers, view and manage all reservations, update reservation statuses, schedule sittings, and create employee profiles.",
+      "desc2": "Employees have similar permissions to managers, with a few restrictions. While they can manage reservations and view customer bookings, they cannot schedule sittings or create employee profiles."
+    }},
+    {"dual-desc-section": {
+      "desc1": "Members, in addition to making online reservations, benefit from auto-filled user information on booking. They can also view their booking history, making it easy to manage and review past reservations.",
+      "desc2": "A mobile app complements the system, offering tailored interfaces for members, employees, and managers. Built with React Native, JWT authentication, and REST APIs, the app displays past reservations with unique QR codes for members. Employees and managers access a QR scanner to verify member codes and view reservation details for efficient management."
     }},
   ]
     

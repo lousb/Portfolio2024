@@ -25,6 +25,13 @@
     position: relative;
     z-index: 100;
     height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.page-five > div{
+    width: 100%;
+    max-width: 2100px;
 }
 .contact-wrap{
     width: 100%;
@@ -165,7 +172,7 @@
 }
 .first-page-wrap{
     width: 100%;
-    height: calc(100vh - 2.5svw);
+    height: calc(100vh - 2.5vw);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -384,12 +391,12 @@ body:has(.project-details) .header-toggled .header-menu-toggler{
     position: fixed;
     top:0;
     left: 0;
-    height:100svh;
+    height:100vh;
 
     display: flex;
     justify-content: center;
-width: fit-content;
-padding-inline: 2.7svw;
+    width: 94.6vw;
+    padding-inline: 2.7vw;
     align-items: center;
 }
 
@@ -397,6 +404,7 @@ padding-inline: 2.7svw;
     height:fit-content;
     display: flex;
     overflow: hidden;
+    /* transform: translateX(-1em) !important; */
 }
 .site-title-wrap .site-title{
     margin-block:0; 
@@ -406,6 +414,7 @@ padding-inline: 2.7svw;
     transform: translateY(1em) scale(0.8);
     transform-origin: center center;
 letter-spacing: -0.058em;
+    margin-right: 0.05em;
 
     font-weight: 800;
     color: var(--primary-color);
@@ -442,7 +451,7 @@ letter-spacing: -0.058em;
     mix-blend-mode: difference;
     transform-origin:top right;
     /* scale: 3; */
-    width: 50.2svw;
+    width: 50.2vw;
 
   
 
@@ -452,7 +461,7 @@ letter-spacing: -0.058em;
     
 }
 .project-more-details-desc{
-    width: 46.8svw;
+    width: 46.8vw;
     font-weight: 500;
     font-size: 2em;
     color: var(--primary-color);
@@ -590,9 +599,9 @@ body:has(.page-three.read-more) .project-more-details-desc{
 .threejs-background-wrap{
     z-index: 1 !important;
     position: fixed;
-    width:46.6svw;
+    width:46.6vw;
     height: 100%;
-    left: 2.7svw;
+    left: 2.7vw;
     display: flex;
     justify-content: end;
     align-items: end;
@@ -608,9 +617,9 @@ body:has(.page-three.read-more) .project-more-details-desc{
     clip-path: inset(0 0 0 0);
 }
 body:has(.more-active-project-page) .threejs-background-wrap{
-    width:calc(94.5svw);
-    height: calc(100vh - 2.7svw);
-    margin-top: 2.7svw;
+    width:calc(94.5vw);
+    height: calc(100vh - 2.7vw);
+    margin-top: 2.7vw;
 }
 
 body:has(.more-active-project-page) .threejs-background{
@@ -696,7 +705,7 @@ body:has(.more-active-project-page) .threejs-background{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-height:calc(100svw/2);
+    max-height:calc(100vw/2);
     pointer-events: none;
     width: 100%;
     opacity: 0.99;
@@ -705,7 +714,7 @@ body:has(.more-active-project-page) .threejs-background{
 }
 .threejs-wrap:has(.louis-canvas){
     width: 200%;
-    max-height:calc(100svw);
+    max-height:calc(100vw);
     display: flex;
     align-items: center;
     aspect-ratio: 16/9;
@@ -716,11 +725,12 @@ body:has(.more-active-project-page) .threejs-background{
 }
 .project-canvas{
 width: 200% !important;
-height: 100svw !important;
-max-height:calc(100svw);
+height: 100vw !important;
+max-height:calc(100vw);
 display: flex;
 align-items: center;
 aspect-ratio: 16/9;
+transform: translateX(-25vw) !important;
 }
 .project-canvas canvas{
     
@@ -869,8 +879,8 @@ body:has(.portfolio-page-container) .project-home{
 .more-active-project-name{
     height: 100vh;
     position: fixed;
-    width: calc(100vw - 2.7svw*2);
-    padding-inline: 2.7svw;
+    width: calc(100vw - 2.7vw*2);
+    padding-inline: 2.7vw;
     display: flex;
     align-items: center;
     z-index: 20;
@@ -890,10 +900,15 @@ body:has(.portfolio-page-container) .project-home{
 }
 .large-video-section{
     aspect-ratio: 16/9;
-    margin-bottom: 2.7svw;
+    margin-bottom: 2.7vw;
 }
 .project-canvas-wrap{
     top:0%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%, -0%);
 }
 .large-video-section video{
     width: 100% !important;
@@ -967,7 +982,7 @@ height: 1em;
     .page-two{
         display:flex;
        justify-content: space-between;
-       gap:1.8svw;
+       gap:1.8vw;
 
     }
     .louis-canvas>div{
@@ -1000,8 +1015,8 @@ height: 1em;
         display: none !important;
     }
     .site-title-container{
-        width: 90svw;
-        padding-inline: 5svw;
+        width: 90vw;
+        padding-inline: 5vw;
     }
     .page-two{
         margin-bottom: 30vh;
@@ -1031,12 +1046,12 @@ height: 1em;
         pointer-events: all !important;
     }
     .box-index{
-        top:4svw;
-        right: 4svw !important;
+        top:4vw;
+        right: 4vw !important;
     }
     
     .grid-box{
-        padding: 4svw !important;
+        padding: 4vw !important;
 
     }
     .angry-grid .grid-box-desc {
@@ -1069,8 +1084,8 @@ height: 1em;
     }
     .card{
         margin-inline:0 !important;
-        width:90svw !important;
-        padding-inline: 5svw;
+        width:90vw !important;
+        padding-inline: 5vw;
         height: fit-content !important;
         padding-bottom: 10vh !important;
     }
@@ -1081,7 +1096,7 @@ height: 1em;
         margin-block: 15vh !important;
     }
     .card-2{
-        margin-bottom: 3svw !important;
+        margin-bottom: 3vw !important;
     }
     .project-line{
         width: 100% !important;
@@ -1179,11 +1194,11 @@ height: 1em;
         max-width: calc(850px*4);
     }
     section{
-        width:90svw;
-        padding-inline: 5svw;
+        width:90vw;
+        padding-inline: 5vw;
     }
     .main-page-p{
-        max-width: 90svw;
+        max-width: 90vw;
     }
     .main-page-title, .site-title{
         font-size: 11.9vw !important;
@@ -1193,7 +1208,7 @@ height: 1em;
         transform: scale(0.6) !important;
     }
     .main-page-buttons-wrap{
-        margin-bottom:2.7svw;
+        margin-bottom:2.7vw;
     }
     .projects-list{
         width: 100%;
@@ -1210,10 +1225,10 @@ height: 1em;
         width: max-content;
     }
     .acknowledgement-p{
-        max-width: 90svw;
+        max-width: 90vw;
     }
     .get-in-touch{
-        margin-top:2.7svw;
+        margin-top:2.7vw;
         font-size: 14vw;
     }
     .project-desc-wrap *{
@@ -1260,7 +1275,7 @@ height: 1em;
     .main-page-buttons-wrap{
         flex-direction: column;
         gap: 1em;
-        margin-bottom:2.7svw;
+        margin-bottom:2.7vw;
     }
    
     .main-page-buttons-wrap a{

@@ -10,7 +10,7 @@ body{
 .App {
  
 
-    width:100svw;
+    width:100vw;
 
 
     overflow-x: hidden;
@@ -26,8 +26,8 @@ body{
 
   section{
     overflow-x: hidden;
-    width:94.6svw;
-    padding-inline: 2.7svw;
+    width:94.6vw;
+    padding-inline: 2.7vw;
     height: 100vh;
     background-color:var(--background-color) !important;
     z-index: 1;
@@ -68,7 +68,7 @@ body{
     transform: scale(0.713) !important;
   }
   .project-canvas{
-    transform: translateX(-75svw) !important;
+    transform: translateX(-75vw) !important;
   }
   .threejs-wrap:has(.louis-canvas){
     z-index: 20;
@@ -148,6 +148,14 @@ body:has(a:hover) circle, body:has(.hoverable:not(.active):hover) circle{
     font-size: 275px !important;
     margin: 0px auto;
   }
+  .site-title{
+    margin-right: 0.11em !important;
+  }
+  .get-in-touch.title{
+    font-size: 325px !important;
+    margin: 0px auto;
+    letter-spacing: -0.06em !important;
+  }
   .threejs-wrap:has(.louis-canvas) {
     max-width: calc(2213.4px*1.6);
   }
@@ -163,7 +171,7 @@ body:has(a:hover) circle, body:has(.hoverable:not(.active):hover) circle{
     max-width: calc(1791px * 2) !important;
     height: 1791px !important;
 
-        transform: translateX(-25svw) !important;
+        transform: translateX(-25vw) !important;
 
   }
   .projects-list {
@@ -216,7 +224,7 @@ body:has(a:hover) circle, body:has(.hoverable:not(.active):hover) circle{
   max-width: 2100px;
 }
 .more-active-project-name {
-  width: calc(2213.4px - 2.7svw) !important;
+  width: calc(2213.4px - 2.7vw) !important;
   padding: 0 !important;
 }
 .more-active-project-name > .text-reveal-container> h1, .project-less-details .title {

@@ -196,7 +196,7 @@ function CameraPositioning() {
     ScrollTrigger.create({
      trigger: pageRef.current,
       start: "top top",
-      end:`+=${pageRef.current.clientHeight - window.innerHeight - (window.innerWidth * 0.017)}`,
+      end:`+=${pageRef.current.clientHeight - window.innerHeight + 200}`,
       pin: '.minimal-header',
       pinSpacer:false,
 

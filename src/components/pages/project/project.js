@@ -288,8 +288,11 @@ export const ProjectDetails = memo(({ project }) => {
         {WebsiteLink?
 
           <div>
+            {announcement? 
+            <Reveal custom={6} textContent={announcement} element={"span"} elementClass={'announcement'}/>:<></>}
             <a href={WebsiteLink} target="_blank" className="website-link main-page-button-secondary" rel="noreferrer">
               <Reveal custom={6} textContent={`Website`} element={"span"} />
+              
               
             </a>
             {Instagram?
@@ -308,8 +311,7 @@ export const ProjectDetails = memo(({ project }) => {
           :
           <></>
           }
-             {announcement? 
-            <Reveal custom={6} textContent={announcement} element={"span"} elementClass={'announcement'}/>:<></>}
+             
           {contribution?
          <Reveal custom={6} textContent={contribution} element={"span"} elementClass={'announcement'}/>
          :

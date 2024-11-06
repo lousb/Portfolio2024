@@ -4,7 +4,6 @@ import Home from './home/home';
 import Lenis from "@studio-freight/lenis";
 import Project from "./project/project";
 import Footer from "../molecules/footer/small/footer";
-import Safariuser from "../molecules/SafariUser/safariuser";
 
 function PageContent() {
   useEffect(() => {
@@ -43,10 +42,7 @@ function PageContent() {
   return (
     <div className="page-content">
     
-        {isSafari ? (
-
-          <Safariuser />
-        ) : (
+        
           <Router>
             <Routes>
               <Route
@@ -60,7 +56,7 @@ function PageContent() {
               <Route path="/:projectId" element={<Project />} />
             </Routes>
           </Router>
-        )}
+        
 
       <Footer />
     </div>
