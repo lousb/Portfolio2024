@@ -15,22 +15,22 @@ function Header() {
 
 
   // Function to handle hover start
-  const handleHoverStart = () => {
-    setIsHovered(true);
-  };
+  // const handleHoverStart = () => {
+  //   setIsHovered(true);
+  // };
 
-  // Function to handle hover end
-  const handleHoverEnd = () => {
-    setIsHovered(false);
-  };
+  // // Function to handle hover end
+  // const handleHoverEnd = () => {
+  //   setIsHovered(false);
+  // };
 
   // Use useEffect to watch isHovered state and update isActive accordingly
-  useEffect(() => {
-    if (!isHovered && isActive) {
-      setIsActive(false);
-      setIsNavVisible(false);
-    }
-  }, [isHovered, isActive]);
+  // useEffect(() => {
+  //   if (!isHovered && isActive) {
+  //     setIsActive(false);
+  //     setIsNavVisible(false);
+  //   }
+  // }, [isHovered, isActive]);
 
   // Function to handle header toggling
   const handleHeaderToggle = () => {
@@ -82,8 +82,8 @@ function Header() {
         {/* Hamburger menu icon */}
         <div
           className={`${styles["header-menu-toggler"]}  header-menu-toggler`}
-          onMouseEnter={handleHoverStart}
-          onMouseLeave={handleHoverEnd}
+          // onMouseEnter={handleHoverStart}
+          // onMouseLeave={handleHoverEnd}
         >
           <div
             className={`${styles["header-hamburger"]} header-hamburger hoverable`}
