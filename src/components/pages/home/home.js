@@ -560,7 +560,7 @@ function About({windowWidth, setIsModelHidden}){
   return(
     <section className="page-two page" id='page-two' ref={sectionRef} >
     <p className="main-page-p">
-        Louis Wyeth. I'm a designer who crafts intuitive, end-to-end products, focusing on scalable systems & user-friendly interfaces to empower interaction. I thrive in collaborative settings, using a precise process to develop modern ways to engage with media & culture.
+        Louis Wyeth ⸺ I'm a designer who crafts intuitive, end-to-end products, focusing on scalable systems & user-friendly interfaces to empower interaction. I thrive in collaborative settings, using a precise process to develop modern ways to engage with media & culture.
     </p>
     <p className="main-page-p">
       With four years of professional experience and a Diploma in Software Development, I bring a love for crafting visual systems. I thrive on untangling complex challenges and iterating on innovative ideas to deliver impactful results for my clients.<br/><br/> Currently focused on empowering local brands and businesses, making a real difference in their online presence.</p>
