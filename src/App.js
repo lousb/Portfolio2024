@@ -1,5 +1,5 @@
 // App.js
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import './App.css';
 
 //components
@@ -9,6 +9,7 @@ import Footer from './components/molecules/footer/small/footer.js';
 import useScroll from "./utils/useScroll.js";
 import CircleCursor from "./utils/circleCursor.js";
 import gsap, { TweenMax } from 'gsap'; // Import GSAP library
+import Lenis from "@studio-freight/lenis";
 
 //context - Make sure to use the correct import name here
 import MouseCursor from "./utils/mouseCursor";
@@ -16,6 +17,35 @@ import MouseCursor from "./utils/mouseCursor";
 function App() {
   const isScrolled = useScroll();
   const [mouseDown, setMouseDown] = useState(false);
+
+  const lenisRef = useRef(null);
+
+  useEffect(() => {
+    // Initialize Lenis
+    const lenis = new Lenis({
+      duration: 1.2, // Adjust duration for smoother scroll
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      smoothTouch: false,
+      touchMultiplier: 2,
+    });
+
+    lenisRef.current = lenis;
+
+    // RAF for smooth scroll handling
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    // Cleanup on unmount
+    return () => {
+      lenis.destroy(); // Ensure to clean up Lenis instance on unmount
+    };
+  }, []);
 
   useEffect(() => {
     const handleMouseDown = (event) => {
