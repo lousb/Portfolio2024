@@ -191,7 +191,6 @@ const projectsData = [
 ,  
   {
     "title": "INKA",
-    "WebsiteLink":'https://inka.com.au',
     "description": {
       "short": "Interaction Design",
       "longCol1": "Inka, fusing Japanese & Peruvian culture with motion & interaction. Connecting customers to cuisine within a web based application.",
