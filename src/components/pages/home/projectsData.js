@@ -71,6 +71,25 @@ const projectsData = [
       }
     }},{"dual-image-section": {
       "image1": {
+        "imageUrl": "/AppImages/ProjectImages/Esoteric/ESO252.jpg",
+        "imageName": "EsotericMovie1"
+      },
+      "image2": {
+        "imageUrl": "/AppImages/ProjectImages/Esoteric/ESO255.mp4",
+        "imageName": "EsotericMovie2"
+      }
+    }},{"dual-image-section": {
+      "image1": {
+        
+        "imageUrl": "/AppImages/ProjectImages/Esoteric/ESO254.mp4",
+        "imageName": "EsotericMovie1"
+      },
+      "image2": {
+        "imageUrl": "/AppImages/ProjectImages/Esoteric/ESO253.jpg",
+        "imageName": "EsotericMovie2"
+      }
+    }},{"dual-image-section": {
+      "image1": {
         "imageUrl": "/AppImages/ProjectImages/Esoteric/EsotericDual2.webm",
         "imageName": "EsotericMovie1"
       },
@@ -241,15 +260,25 @@ const projectsData = [
     "contribution":"(During Employment)",
     "index":'amp',
     "description": {
-      "short": "Web Design",
+      "short": "Brand-Identity",
       "longCol1": "Analyse my property, communicating usability & sophistication of property analysis, through branding & a web based e-commerce package system.",
       "longCol2": "This project encompassed logo & branding, from packaging to packages, cards & website. Communicated through a consistently clear art direction."
     },
-    'status':'Branding',
+    'status':'Web Design',
     "techUsed": "JS, CSS, Wordpress, STRIPE, GSAP, InDesign, Digital and Print PDF & Design Systems",
     "links": "Read More",
     "mobileModel":"/AppImages/ProjectImages/AMP/ampModel.webp",
     "readMoreData": [
+      {"dual-image-section": {
+        "image1": {
+          "imageUrl": "/AppImages/ProjectImages/AMP/AMP253.mp4",
+          "imageName": "Amp Dual 1"
+        },
+        "image2": {
+           "imageUrl": "/AppImages/ProjectImages/AMP/AMP252.mp4",
+           "imageName": "Amp Dual 2"
+        }
+      }},
      {"large-image-section": {
        "largeImage": {
          "imageUrl": "/AppImages/ProjectImages/AMP/AmpLarge1.webm",
@@ -258,7 +287,7 @@ const projectsData = [
      }},
      {"dual-image-section": {
        "image1": {
-         "imageUrl": "/AppImages/ProjectImages/AMP/AmpDual1.png",
+         "imageUrl": "/AppImages/ProjectImages/AMP/AMP251.jpg",
          "imageName": "Amp Dual 1"
        },
        "image2": {

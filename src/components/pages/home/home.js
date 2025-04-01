@@ -560,10 +560,10 @@ function About({windowWidth, setIsModelHidden}){
   return(
     <section className="page-two page" id='page-two' ref={sectionRef} >
     <p className="main-page-p">
-        Louis Wyeth ⸺ Crafting intuitive, end-to-end products, focusing on scalable systems & interactive user-friendly interfaces.
+    Louis Wyeth ⸺ Crafting intuitive, scalable products with design systems, brand-identity & content management at the core.
     </p>
     <p className="main-page-p">
-      I bring a love for crafting visual systems. I thrive on untangling complex challenges and iterating on innovative ideas to deliver impactful results for my clients.<br/><br/> Currently focused on empowering local brands and businesses, making a real difference in their online presence.</p>
+    Passionate about visual systems. I thrive on untangling complex challenges and iterating on innovative ideas to deliver impactful results for my clients.<br/><br/> Currently focused on empowering local brands and businesses, making a real difference in their online presence.</p>
     </section>
   )
 }
